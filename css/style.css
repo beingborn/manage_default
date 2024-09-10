@@ -102,6 +102,43 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 .pageError .inner{color:#fff;font-size:1.8rem;font-weight:400;text-align:center;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);-moz-transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);-o-transform:translate(-50%, -50%);transform:translate(-50%, -50%);width:100%;max-width:1280px;}
 .pageError .inner button{border:1px solid #191919;padding:10px 20px;border-radius:5px;background:#333;color:#fff;}
 
+
+
+	/* 파일 업로드 커스텀 */
+	.preview {border: 1px solid #ddd;}
+	.upload_file_name {padding-left: 10px;}
+	.file_select {border: 1px solid #1d1d1d; height: 40px; font-size: 1.5rem; min-width: 86px; display: flex; align-items: center; justify-content: center;} 
+
+	/* 줄바꿈 없는 테이블 */
+	.table_wrap table td {white-space: nowrap;} /* 줄바꿈 금지 */
+	.table_wrap table {table-layout: auto;} /* 셀 내용에 따라 너비 자동 조정 */
+	.content_r {width: calc(100% - 300px);} /* 왼쪽 노동조합 체계 제외 너비 설정 */
+	.table_wrap thead th {padding: 1.45rem 4px;} /* 표 제목 최소 간격 설정 */
+
+	/* 노동조합 체계 */
+	.system-list {max-height: 800px; overflow-y: auto;}  /* 노동조합체계 800px 이상 길어질 시 스크롤 형성 */
+	.system-list .menu-head.depth-one {padding-left: 8px} /* depth가 깊어질 때 마다 왼쪽 간격 4px씩 상승 */
+	.system-list .menu-head.depth-second {padding-left: 12px;}
+	.system-list .menu-head.depth-three {padding-left: 16px;}
+	.system-list .menu-head.depth-four {padding-left: 20px;}
+	.system-list .menu-head.depth-five {padding-left: 24px;}
+	.system-list .menu-head.depth-six {padding-left: 28px;}
+
+	 /* 노동조합 체계 제목 스타일 */
+	.menu-head {display: flex; justify-content: space-between; align-items: center; cursor: pointer; position: relative; border-bottom: 1px solid #ddd; padding-top: 12px; padding-bottom: 12px;}
+	.menu-head {min-height: 3.5rem;}
+	.menu-head.active {background: rgb(238, 238, 238);}
+	.menu-head.depth-0 {height: 4.8rem; font-size: 1.8rem; font-weight: 700;}  /* 노동조합 체계 최상단 제목 스타일 */
+	.system-list .menu-btn {max-width: 20px;min-width: 20px;height: 2rem;background: url(../images/arrow__bottom-bk.svg) no-repeat center ;position: absolute;right: 1.5rem;top: 50%;transform: translateY(-50%); border: none;} /* 화살표 열림 닫힘 버튼 */
+
+	/* 조회 모달 마진 */
+	.check_con {display: flex; align-items: center; height: 40px;}
+	.check_con label {padding-left: 10px;}
+	.check_con label:not(:last-child) {padding-right: 10px;}
+	.checkData input[type="checkbox"] {width: 20px; height: 20px;}
+
+
+
 @media only screen and (max-width: 1200px) {
 	.sub4_2Con .searchBox{display:block;}
 	.sub4_2Con .searchBox:after{clear:both;display:block;content:"";}
