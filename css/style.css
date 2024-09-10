@@ -137,8 +137,6 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.check_con label:not(:last-child) {padding-right: 10px;}
 	.checkData input[type="checkbox"] {width: 20px; height: 20px;}
 
-
-
 @media only screen and (max-width: 1200px) {
 	.sub4_2Con .searchBox{display:block;}
 	.sub4_2Con .searchBox:after{clear:both;display:block;content:"";}

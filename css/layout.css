@@ -40,6 +40,7 @@ header .nav .memberShip{font-size:13px;position:absolute;background:#eee;color:#
 .header__btm { position: relative; align-items: center; display: flex; margin-bottom: 1.6rem; padding-top: 2rem; }
 .right__icon__set { display: flex; align-items: center; margin-left: auto; }
 .right__icon__set a { font-weight: bold; font-size: 1.7rem; padding: 1rem 1.2rem; display: inline-flex; align-items: center; }
+.right__icon__set a.hamburger {display: none;}
 .right__icon__set a img { margin-right: 0.8rem; }
 .right__icon__set a span { white-space: nowrap; }
 .right__icon__set .talk__count { display: inline-block; width: 2.6rem; height: 2rem; line-height: 2rem; text-align: center; background-color: #246BEB; color: #fff; border-radius: 2rem; font-size: 1.5rem; font-weight: 400; margin-left: 0.8rem; }
