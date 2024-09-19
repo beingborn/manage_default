@@ -40,6 +40,7 @@ function fn_width(){
 
 
 
+
 // new header js
 $(document).ready(function() {
     const gnbTop__Menu = $('#gnb1 > .top__menu > li.plus > a');
@@ -81,6 +82,46 @@ $(document).ready(function() {
           $(this).hide();
         })
     });
+
+
+// 노동조합 체계 관리	
+	$(document).ready(function () {
+		// 클릭 시 다음 body 토글
+		$('.menu-head').on('click', function () {
+			const currentHead = $(this)
+			const currentBody = $(this).next('.menu-body')
+			const isClosed = currentBody.css('display') === "none";
+			currentBody.slideToggle();
+
+			$('.menu-head').not(currentHead).removeClass('active');
+			currentHead.addClass('active');
+
+			toggleMenuButton(currentHead, isClosed)
+			if (!isClosed) {
+				resetSubMenuStyles(currentHead)
+			}
+		})
+		// 버튼 별 background 변경 함수
+		function toggleMenuButton(menuHead, open) {
+			const newBackground = open
+				? "url(images/arrow__top-blue.svg) no-repeat center"
+				: "url(images/arrow__bottom-bk.svg) no-repeat center";
+			menuHead
+				.find(".menu-btn")
+				.css("background", newBackground);
+		}
+		// 하위 메뉴 스타일 초기화 함수
+		function resetSubMenuStyles(currentHead) {
+			currentHead
+				.next(".menu-body")
+				.find(".menu-head")
+				.each(function () {
+					$(this)
+						.next(".menu-body")
+						.slideUp();
+				});
+		}
+	});
 
 
 

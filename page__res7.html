@@ -15,9 +15,6 @@
 	<script src="js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/lpap.js"></script>
-
-
-
 </head>
 <body>
     <div id="top">
@@ -32,26 +29,32 @@
                     </a>
                 </h1>
                 <div class="right__icon__set">
-               
-                    <a href="login.html" class="login">
+                    <!-- <a href="login.html" class="login">
                         <img src="images/icon20-1.png" alt="검색 아이콘">
                         <span>로그인</span>
-                    </a>
-
+                    </a> -->
                     <!-- 전체메뉴 -->
-                    <a href="#" class="hamburger">
+                    <!-- <a href="#" class="hamburger">
                         <img src="images/hamburger__icon.png" alt="전체 메뉴 아이콘">
                         <span>전체메뉴</span>
-                    </a>
-
-                    <a href="sign__up.html" class="sign__up">
+                    </a> -->
+                    <!-- <a href="sign__up.html" class="sign__up">
                         <img src="images/icon20-2.png" alt="회원가입 아이콘">
                         <span>회원가입</span>
-                    </a>
-                 
+                    </a> -->
+					<div class="user__info">
+                        <a class="reset" href="javascript:void(0)" onclick="fn_reset()">관리자 패스워드 변경</a>
+                        <span class="user__name">
+							<img src="images/icon__user.png" alt="유저 아이콘">
+							관리자님
+						</span>
+                        <a href="#" class="logout">
+                            <img src="images/icon20-1.png" alt="로그아웃 아이콘">
+                            <span>로그아웃</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-
             <div class="header__gnb">
                 <div>
                     <nav id="gnb1">
@@ -87,7 +90,6 @@
                                     </ul>
                                 </div>
                             </li>
-        
                             <li class="plus"> <a class="open--depth-second" href="javascript:void(0);">회계공시열람
                             </a>
                                 <div class="sub__menu">
@@ -233,46 +235,6 @@ function fn_fileDown(failId){
 }
 
 
-$(document).ready(function () {
-                            // 클릭 시 다음 body 토글
-                            $('.menu-head:not(.depth-0)').on('click', function () {
-                                const currentHead = $(this)
-                                const currentBody = $(this).next('.menu-body')
-                                const isClosed = currentBody.css('display') === "none";
-                                currentBody.slideToggle();
-
-                                $('.menu-head').not(currentHead).removeClass('active');
-                                currentHead.addClass('active');
-
-                                toggleMenuButton(currentHead, isClosed)
-                                if (!isClosed) {
-                                    resetSubMenuStyles(currentHead)
-                                }
-                            })
-                            // 버튼 별 background 변경 함수
-                            function toggleMenuButton(menuHead, open) {
-                                const newBackground = open
-                                    ? "url(images/arrow__top-blue.svg) no-repeat center"
-                                    : "url(images/arrow__bottom-bk.svg) no-repeat center";
-                                menuHead
-                                    .find(".menu-btn")
-                                    .css("background", newBackground);
-                            }
-                            // 하위 메뉴 스타일 초기화 함수
-                            function resetSubMenuStyles(currentHead) {
-                                currentHead
-                                    .next(".menu-body")
-                                    .find(".menu-head")
-                                    .each(function () {
-                                        $(this)
-                                            .next(".menu-body")
-                                            .slideUp();
-                                    });
-                            }
-                        });
-
-
-
 			// 파일 업로드 커스텀
 			$(document).ready(function(){
 				let inputs = $(".file__post");
@@ -413,19 +375,9 @@ $(document).ready(function () {
 					</div>
 				</form>
 			</div>
-
-
-
-
-
-
-
-
-
 			<div class="flexBox">
 				<div class="mr20 miw_280">
 					<h3 class="dataTitle">노동조합 체계</h3>
-					
 					       <!-- 메뉴 트리 -->
 						   <ul class="system-list" data-action="accordion">
 							<li class="home-li">
@@ -433,9 +385,6 @@ $(document).ready(function () {
 									<div class="acco-in first-acco">
 										<ul class="sub-ul">
 											<li class="depth-0-li">
-												<div class="menu-head depth-0" style="border-bottom: 0.5rem solid #246BEB">
-													<h3 style="font-weight: bold;">노동조합</h3>
-												</div>
 												<div class="menu-body depth-0-body">
 													<div class="acco-in">
 														<ul class="sub-ul">
@@ -498,7 +447,6 @@ $(document).ready(function () {
 																</div>
 															</li>
 															<!-- depth -1 -->
-
 															<li class="depth-one-li">
 																<div class="menu-head depth-one">
 																	<span class="menu-title">전국민주노동조합총연맹</span>
@@ -555,7 +503,6 @@ $(document).ready(function () {
 																</div>
 															</li>
 															<!-- depth - 1- li -->
-
 															<li class="depth-one-li">
 																<div class="menu-head depth-one">
 																	<span class="menu-title">대한민국노동조합총연맹</span>

@@ -116,7 +116,7 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.table_wrap thead th {padding: 1.45rem 4px;} /* 표 제목 최소 간격 설정 */
 
 	/* 노동조합 체계 */
-	.system-list {max-height: 800px; overflow-y: auto;}  /* 노동조합체계 800px 이상 길어질 시 스크롤 형성 */
+	.system-list {max-height: 800px; overflow-y: auto; border-top: 2px solid #505050;}  /* 노동조합체계 800px 이상 길어질 시 스크롤 형성 */
 	.system-list .menu-head.depth-one {padding-left: 8px} /* depth가 깊어질 때 마다 왼쪽 간격 4px씩 상승 */
 	.system-list .menu-head.depth-second {padding-left: 12px;}
 	.system-list .menu-head.depth-three {padding-left: 16px;}
@@ -128,7 +128,8 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.menu-head {display: flex; justify-content: space-between; align-items: center; cursor: pointer; position: relative; border-bottom: 1px solid #ddd; padding-top: 12px; padding-bottom: 12px;}
 	.menu-head {min-height: 3.5rem;}
 	.menu-head.active {background: rgb(238, 238, 238);}
-	.menu-head.depth-0 {height: 4.8rem; font-size: 1.8rem; font-weight: 700;}  /* 노동조합 체계 최상단 제목 스타일 */
+	.menu-head.depth-one.active {background: transparent;}
+	/* .menu-head.depth-0 {height: 4.8rem; font-size: 1.8rem; font-weight: 700;}  // 노동조합 체계 최상단 제목 스타일 */
 	.system-list .menu-btn {max-width: 20px;min-width: 20px;height: 2rem;background: url(../images/arrow__bottom-bk.svg) no-repeat center ;position: absolute;right: 1.5rem;top: 50%;transform: translateY(-50%); border: none;} /* 화살표 열림 닫힘 버튼 */
 
 	/* 조회 모달 마진 */

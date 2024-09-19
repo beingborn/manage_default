@@ -13,7 +13,6 @@
         <script src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/lpap.js"></script>
-
     </head>
     <body>
         <div id="body">
@@ -49,7 +48,7 @@
 
                         $(document).ready(function () {
                             // 클릭 시 다음 body 토글
-                            $('.menu-head:not(.depth-0)').on('click', function () {
+                            $('.menu-head').on('click', function () {
                                 const currentHead = $(this)
                                 const currentBody = $(this).next('.menu-body')
                                 const isClosed = currentBody.css('display') === "none";
@@ -113,7 +112,6 @@
                         </h2>
                         <form class="searchBox flexBox" id="frmSearch" method="POST">
                             <input type="hidden" id="pageNo" name="pageNo" value=""/>
-
                             <div class="select w_per20 miw_160 mw_160">
                                 <label for="searchField3" class="blind">검색조건 선택</label>
                                 <select name="" id="searchField3">
@@ -125,10 +123,8 @@
                                 <label for="searchText" class="blind">검색어 입력</label>
                                 <input type="text" id="" name="" placeholder="조합명을 입력하세요." value="">
                             </div>
-
                             <div class="flexBox">
                                 <label for="" class="pr20">구분:</label>
-
                                 <div class="miw_100">
                                     <input type="radio" id="" name="" value="" title="공시대상 전체">
                                     <label for="" class="ineH_40 pr8" style="">전체</label>
@@ -140,13 +136,11 @@
                                     <label for="" class="ineH_40" style="">기타</label>
                                 </div>
                             </div>
-
                         </form>
 
                         <div class="flexBox">
                             <div class="mr20 miw_280">
                                 <h3 class="dataTitle">노동조합 체계</h3>
-
                                 <!-- 메뉴 트리 -->
                                 <ul class="system-list" data-action="accordion">
                                     <li class="home-li">
@@ -154,9 +148,6 @@
                                             <div class="acco-in first-acco">
                                                 <ul class="sub-ul">
                                                     <li class="depth-0-li">
-                                                        <div class="menu-head depth-0" style="border-bottom: 0.5rem solid #246BEB">
-                                                            <h3 style="font-weight: bold;">노동조합</h3>
-                                                        </div>
                                                         <div class="menu-body depth-0-body">
                                                             <div class="acco-in">
                                                                 <ul class="sub-ul">

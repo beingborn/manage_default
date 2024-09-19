@@ -37,6 +37,13 @@ header .nav .memberShip{font-size:13px;position:absolute;background:#eee;color:#
 .header__top a { display: inline-flex; align-items: center; margin-right: 1.2rem; padding-right: 1.2rem; font-size: 1.6rem; }
 .header__top a::after { content: ""; width: 1rem; height: 1rem; display: inline-block; background: url(../images/icon__arrow__down.svg) no-repeat center; margin-left: 0.4rem; }
 
+/* new userinfo */
+.user__info {display: flex; align-items: center;}
+.user__info .reset {background-color: #eee; color: #767676; border-radius: 8px; font-size: 1.3rem; font-weight: normal;}
+.user__info .user__name {font-size: 1.7rem; font-weight: 700; margin-left: 12px;}
+.user__name {display: flex; align-items: center;}
+.user__name img {margin-right: 8px;}
+
 .header__btm { position: relative; align-items: center; display: flex; margin-bottom: 1.6rem; padding-top: 2rem; }
 .right__icon__set { display: flex; align-items: center; margin-left: auto; }
 .right__icon__set a { font-weight: bold; font-size: 1.7rem; padding: 1rem 1.2rem; display: inline-flex; align-items: center; }
