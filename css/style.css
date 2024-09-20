@@ -138,7 +138,8 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.system-list .menu-head.depth-six {padding-left: 28px;}
 
 	 /* 노동조합 체계 제목 스타일 */
-	.menu-head {display: flex; justify-content: space-between; align-items: center; cursor: pointer; position: relative; padding-top: 12px; padding-bottom: 12px;}
+	.menu-head:not(.depth-one){cursor: pointer;}
+	.menu-head {display: flex; justify-content: space-between; align-items: center; position: relative; padding-top: 12px; padding-bottom: 12px;}
 	.menu-head {min-height: 3.5rem;}
 	.menu-head.active {background: rgb(238, 238, 238);}
 	.menu-head.depth-one.active {background: transparent;}
