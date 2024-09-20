@@ -106,10 +106,16 @@ $(document).ready(function() {
 		const currentHead = $(this)
 		const currentBody = $(this).next('.menu-body')
 		const isClosed = currentBody.css('display') === "none";
-		currentBody.slideToggle();
-		$('.menu-head').not(currentHead).removeClass('active');
-		currentHead.addClass('active');
 
+		if(currentHead.hasClass('active')){
+			currentHead.removeClass('active')
+		}else {
+			$('.menu-head').removeClass('active');
+			currentHead.addClass('active');
+		}
+
+
+		currentBody.slideToggle();
 		if(!isClosed){resetSubMenuStyles(currentHead)}
 	})
 	
