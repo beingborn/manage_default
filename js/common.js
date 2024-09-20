@@ -72,20 +72,24 @@ $(document).ready(function() {
     });
 
 
-// 노동조합 체계 관리	
+	// 노동조합 체계 관리	
 	$(document).ready(function () {
 		$('.system-list .menu-head').on('click', function () {
 			const currentHead = $(this)
 			const currentBody = $(this).next('.menu-body')
 			const isClosed = currentBody.css('display') === "none";
 			currentBody.slideToggle();
+
 			$('.menu-head').not(currentHead).removeClass('active');
+			
 			currentHead.addClass('active');
 			toggleMenuButton(currentHead, isClosed)
 			if (!isClosed) {
 				resetSubMenuStyles(currentHead)
+			
 			}
 		})
+
 		function toggleMenuButton(menuHead, open) {
 			const newBackground = open
 				? "url(images/arrow__top-blue.svg) no-repeat center"
@@ -96,9 +100,13 @@ $(document).ready(function() {
 		}
 		function resetSubMenuStyles(currentHead) {
 			currentHead.next(".menu-body").find(".menu-head").each(function () {
-			$(this).next(".menu-body").slideUp();});
+			$(this).next(".menu-body").slideUp();
+			toggleMenuButton($(this), false);
+		}
+		);
 		}
 	});
+
 
 	// 권한별 메뉴 관리
 	$(document).ready(function(){
