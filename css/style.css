@@ -102,8 +102,18 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 .pageError .inner{color:#fff;font-size:1.8rem;font-weight:400;text-align:center;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);-moz-transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);-o-transform:translate(-50%, -50%);transform:translate(-50%, -50%);width:100%;max-width:1280px;}
 .pageError .inner button{border:1px solid #191919;padding:10px 20px;border-radius:5px;background:#333;color:#fff;}
 
-
-
+	/* 메뉴별 권한 관리 */
+	.menu-check {border-top: 2px solid #505050;;}
+	.menu-check .depth-one {padding: 2.5rem 1rem;}
+    .menu-check .depth-one .tit {font-size: 2.1rem; font-weight: 700;}
+    .menu-check .depth-second {border-bottom: 0.1rem solid #ddd; border-top: 0.1rem solid #ddd;font-size: 1.8rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 1rem;}
+    .menu-check .depth-three .sub-ul {padding: 0.7rem 1rem 0.7rem 1.6rem;}
+    .menu-check .depth-three .sub-ul > li, .menu-check .depth-four .sub-ul > li{display: flex; justify-content: space-between; align-items: center; min-height: 35px;} 
+    .menu-check .depth-three .sub-ul > li > span, .menu-check .depth-four .sub-ul > li > span {position: relative; display: flex; align-items: center;}
+    .menu-check .depth-three .sub-ul > li > span::before, .menu-check .depth-four .sub-ul > li > span::before {content: ''; display: inline-block; width: 0.4rem; height: 0.4rem; background-color: #000; border-radius: 50%; margin-right: 0.8rem;} 
+	.menu-check .depth-four {padding: 0.7rem 1rem;}
+	.menu-check .sub-ul label {display: flex;}
+	.menu-check input[type="checkbox"] {width: 20px; height: 20px;}
 	/* 파일 업로드 커스텀 */
 	.preview {border: 1px solid #ddd;}
 	.upload_file_name {padding-left: 10px;}
@@ -117,6 +127,7 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 
 	/* 노동조합 체계 */
 	.system-list {max-height: 800px; overflow-y: auto; border-top: 2px solid #505050;}  /* 노동조합체계 800px 이상 길어질 시 스크롤 형성 */
+	.system-list .menu-head {border-bottom: 1px solid #ddd;}
 	.system-list .menu-head.depth-one {padding-left: 8px} /* depth가 깊어질 때 마다 왼쪽 간격 4px씩 상승 */
 	.system-list .menu-head.depth-second {padding-left: 12px;}
 	.system-list .menu-head.depth-three {padding-left: 16px;}
@@ -125,7 +136,7 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.system-list .menu-head.depth-six {padding-left: 28px;}
 
 	 /* 노동조합 체계 제목 스타일 */
-	.menu-head {display: flex; justify-content: space-between; align-items: center; cursor: pointer; position: relative; border-bottom: 1px solid #ddd; padding-top: 12px; padding-bottom: 12px;}
+	.menu-head {display: flex; justify-content: space-between; align-items: center; cursor: pointer; position: relative; padding-top: 12px; padding-bottom: 12px;}
 	.menu-head {min-height: 3.5rem;}
 	.menu-head.active {background: rgb(238, 238, 238);}
 	.menu-head.depth-one.active {background: transparent;}
@@ -137,6 +148,16 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.check_con label {padding-left: 10px;}
 	.check_con label:not(:last-child) {padding-right: 10px;}
 	.checkData input[type="checkbox"] {width: 20px; height: 20px;}
+
+	/* 브레드 크럼브 */
+	.breadcrumb {display: flex; align-items: center; font-size: 1.5rem; font-weight: 700; padding-left: 2.4rem;}
+	.breadcrumb .path .home > a {position: relative;}
+	.breadcrumb .path .home > a::before {content: ""; display : inline-block; width: 2.4rem; height: 2.4rem; background: url(../images/Base-Breadcrumb.svg) no-repeat center;position: absolute; top: 50%; right: 1.2rem; transform: translateY(-50%);}
+	.breadcrumb .path > li {display: inline; position: relative;}
+	.breadcrumb .path > li > a {padding-bottom: 0.1rem; position: relative; font-weight: 700;}
+	.breadcrumb .path > li > a::after {content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 0.1rem; background-color: #000;}
+	.breadcrumb .path > li + li::before {content: ""; display: inline-block;vertical-align: middle;width: 2rem;height: 2rem;background: url(../images/arrow__right-bk.svg) no-repeat center; margin: 0 0.4rem;}
+
 
 @media only screen and (max-width: 1200px) {
 	.sub4_2Con .searchBox{display:block;}

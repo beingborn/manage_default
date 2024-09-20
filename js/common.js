@@ -46,13 +46,10 @@ $(document).ready(function() {
     gnbTop__Menu.click(function() {
         gnbOpenMenu = $(this).parent(); 
         const isItOpen = gnbOpenMenu.hasClass('active');
-        if (isItOpen) {
-            gnbOpenMenu.removeClass('active');
-            $('.gnb__bg').hide()
+        if (isItOpen) {gnbOpenMenu.removeClass('active');$('.gnb__bg').hide()
         } else {
-            // 모든 상위 메뉴에서 'active' 클래스 제거
             gnbTop__Menu.parent().removeClass('active');
-            // 현재 클릭된 상위 메뉴에 'active' 클래스 추가
+			gnbSub__Menu.parent().removeClass('active');
             gnbOpenMenu.addClass('active');
             $('.gnb__bg').show()
         }
@@ -77,22 +74,18 @@ $(document).ready(function() {
 
 // 노동조합 체계 관리	
 	$(document).ready(function () {
-		// 클릭 시 다음 body 토글
-		$('.menu-head').on('click', function () {
+		$('.system-list .menu-head').on('click', function () {
 			const currentHead = $(this)
 			const currentBody = $(this).next('.menu-body')
 			const isClosed = currentBody.css('display') === "none";
 			currentBody.slideToggle();
-
 			$('.menu-head').not(currentHead).removeClass('active');
 			currentHead.addClass('active');
-
 			toggleMenuButton(currentHead, isClosed)
 			if (!isClosed) {
 				resetSubMenuStyles(currentHead)
 			}
 		})
-		// 버튼 별 background 변경 함수
 		function toggleMenuButton(menuHead, open) {
 			const newBackground = open
 				? "url(images/arrow__top-blue.svg) no-repeat center"
@@ -101,18 +94,39 @@ $(document).ready(function() {
 				.find(".menu-btn")
 				.css("background", newBackground);
 		}
-		// 하위 메뉴 스타일 초기화 함수
 		function resetSubMenuStyles(currentHead) {
-			currentHead
-				.next(".menu-body")
-				.find(".menu-head")
-				.each(function () {
-					$(this)
-						.next(".menu-body")
-						.slideUp();
-				});
+			currentHead.next(".menu-body").find(".menu-head").each(function () {
+			$(this).next(".menu-body").slideUp();});
 		}
 	});
+
+	// 권한별 메뉴 관리
+	$(document).ready(function(){
+	$('.menu-check .menu-head:not(.depth-one)').on('click', function(){
+		const currentHead = $(this)
+		const currentBody = $(this).next('.menu-body')
+		const isClosed = currentBody.css('display') === "none";
+		currentBody.slideToggle();
+		$('.menu-head').not(currentHead).removeClass('active');
+		currentHead.addClass('active');
+
+		if(!isClosed){resetSubMenuStyles(currentHead)}
+	})
+	
+	$('.menu-check input[type="checkbox"]').on('click', function(e) {
+		e.stopPropagation();  
+	});
+	})	
+
+	// 권한별 탭 관리
+	$(document).ready(function(){
+		$(".authTable tr").click(function (e) {
+		  e.stopPropagation(); 
+		  var idx = $(this).index();  
+		  $(".tabContent").hide();
+		  $(".tabContent").eq(idx).fadeIn();
+		});
+	  });
 
 
 

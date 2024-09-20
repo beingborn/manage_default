@@ -43,9 +43,9 @@
                         <span>회원가입</span>
                     </a> -->
 					<div class="user__info">
-						<!-- 기존 카운트 임시 삽입 -->
-						<ul id="cnt" class="clear">
-							<li><span>일일 <i></i></span><b>14</b></li><li><span>주간 <i></i></span><b>130</b></li><li><span>월간 <i></i></span><b>731</b></li><li><span>연간 <i></i></span><b>12182</b></li></ul>
+						<!-- 기존 카운트  -->
+						<!-- <ul id="cnt" class="clear">
+							<li><span>일일 <i></i></span><b>14</b></li><li><span>주간 <i></i></span><b>130</b></li><li><span>월간 <i></i></span><b>731</b></li><li><span>연간 <i></i></span><b>12182</b></li></ul> -->
                         <a class="reset" href="javascript:void(0)" onclick="fn_reset()">관리자 패스워드 변경</a>
                         <span class="user__name">
 							<img src="images/icon__user.png" alt="유저 아이콘">
@@ -238,7 +238,6 @@
             </div>
             <nav id="gnb2">
                 <div class="gnb__in">
-
                 <div class="gnb__head">
                     <div class="gnb__top2">
                         <div class="txt--r">
@@ -249,7 +248,6 @@
                         </div>
                     </div>
                 </div> 
-                
                 <div class="gnb__body">
                     <div class="m-gnb__menu">
                         <div class="menu__wrap">
@@ -268,7 +266,6 @@
                                 <li><a href="#">자주묻는질문</a></li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
 
@@ -392,23 +389,28 @@ function fn_fileDown(failId){
 	<div id="contents">
 		<div class="visual sub4">
 			<div class="inner">
-				<p>회계공시 대상자 관리</p>
-				<p>회계공시 대상자를 관리할 수 있는 페이지입니다.</p>
+				<p>회계공시 대상관리</p>
+				<p>회계공시 대상을 관리할 수 있는 페이지입니다.</p>
 			</div>
 		</div>
 
 		<div class="conBody inner">
-
-
+			<nav class="breadcrumb pb40">
+				<ol class="path">
+					<li class="home"><a href="#" class="txt">홈</a></li>
+					<li><a href="#" class="txt">회계공시관리</a></li>
+					<li><a href="exclusion__management.html" class="txt">회계공시 대상관리</a></li>
+				</ol>
+			</nav>
 			<h2 class="conTitle pb10 relative">
-				회계공시 대상자 관리
+				회계공시 대상 관리
 				<div class="buttonRow" id="btndiv">
 					<button type="button" class="btnG" onclick="fn_reset();">초기화</button>
 					<button type="button" class="btnB" onclick="fn_search();">조회</button>
 					<button type="button" class="btnBk" onclick="fn_new();">신규</button>
 					<button type="button" class="btnBk" onclick="fn_save();">저장</button>
 					<button type="button" class="btnLd" onclick="fn_delete();">삭제</button>
-					<button type="button" class="btnGr" onclick="fn_save();">생성</button>
+					<button type="button" class="btnGr" onclick="fn_save();">자동생성</button>
 				</div>
 			</h2>
 			<form class="searchBox flexBox" id="frmSearch" method="POST">
@@ -722,8 +724,9 @@ function fn_fileDown(failId){
 					<h3 class="dataTitle">
 						조회결과
 						<div class="count">
-							건수 : <span>3</span>건
+							<span>노동조합 건수 :<span>1,440</span>건</span>/<span>전체건수:<span>1,550</span>건</span>
 						</div>
+						
 					</h3>
 					
 				<div class="table mb27">

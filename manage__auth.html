@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            var contextPath = "/pap";
+        </script>
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/common.css">
+        <!-- <link rel="shortcut icon" href="/pap/common/images/common/favicon.ico"> -->
+        <script src="js/chart.min.js"></script>
+        <script src="js/chartjs-plugin-datalabels.js"></script>
+        <script src="js/jquery-3.7.0.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/lpap.js"></script>
+    </head>
+    <body>
+        <div id="body">
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>권한별 메뉴관리</title>
+                    <link rel="stylesheet" href="css/jquery-ui.min.css">
+                    <link rel="stylesheet" href="css/style.css">
+                </head>
+                <body>
+                    <div id="contents">
+                        <div class="visual sub4">
+                            <div class="inner">
+                                <p>권한별 메뉴관리</p>
+                                <p>권한별 메뉴를 관리할 수 있는 페이지입니다.</p>
+                            </div>
+                        </div>
+                        <div class="conBody inner">
+                            <nav class="breadcrumb pb40">
+                                <ol class="path">
+                                    <li class="home"><a href="#" class="txt">홈</a></li>
+                                    <li><a href="#" class="txt">시스템 관리</a></li>
+                                    <li><a href="manage__auth.html" class="txt">권한별 메뉴관리</a></li>
+                                </ol>
+                            </nav>
+                            <h2 class="conTitle pb10 relative">
+                                권한별 메뉴관리
+                                <div class="buttonRow" id="btndiv">
+                                    <button type="button" class="btnBk" onclick="fn_save();">저장</button>
+                                </div>
+                            </h2>
+                            <div class="flexBox">
+                                <div class="mr20 miw_280 mw_280">
+                                    <h3 class="dataTitle">권한</h3>
+                                    <div class="table mb27 authTable">
+                                        <table class="table hover">
+                                            <caption>접근 권한 관리</caption>
+                                            <thead>
+                                                <tr class="txt_c">
+                                                    <th colspan="2">권한명</th>
+                                                </tr>
+                                            </thead>
+                                        <tbody>
+                                            <tr><td colspan="2"><button class="w_per100 txt_l" type="button">관리자</button></td></tr>
+                                            <tr><td colspan="2"><button class="w_per100 txt_l" type="button">노동조합</button></td></tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="content_r">
+                                    <h3 class="dataTitle">권한별 메뉴</h3>
+                                    <div class="tabContent">
+                                        <ul class="menu-check w_per100" data-action="accordion">
+                                            <li class="li">
+                                                <div class="menu-head depth-one"><h3 class="tit">HOME</h3></div>
+                                                <div class="menu-body depth-one-body">
+                                                    <div class="acco-in">
+                                                        <ul class="sub-ul">
+                                                            <li>
+                                                                <div class="menu-head depth-second depth--active">
+                                                                    <span class="menu-title">시스템 안내</span>
+                                                                    <div>
+                                                                        <label><input type="checkbox"></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-body depth-three">
+                                                                    <ul class="sub-ul">
+                                                                        <li>
+                                                                            <span>회계공시 시스템이란</span>
+                                                                            <label><input type="checkbox"></label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>주요회계 공시항목 설명</span>
+                                                                            <label><input type="checkbox"></label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>공지사항</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>자주 묻는 질문</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="menu-head depth-second">
+                                                                    <span class="menu-title">회계공시열람</span>
+                                                                    <div>
+                                                                        <label><input type="checkbox"></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-body depth-three">
+                                                                    <ul class="sub-ul">
+                                                                        <li>
+                                                                            <span>회계공시 열람</span>
+                                                                            <label><input type="checkbox"></label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>회계공시여부 조회</span>
+                                                                            <label><input type="checkbox"></label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="menu-head depth-second">
+                                                                    <span class="menu-title">회계공시등록</span>
+                                                                    <div>
+                                                                        <label><input type="checkbox"></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-body depth-three">
+                                                                    <ul class="sub-ul">
+                                                                        <li>
+                                                                            <span>회계공시 등록</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>가맹노조(산하조직)관리</span>
+                                                                            <label><input type="checkbox"></label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>                      
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabContent">
+                                        <ul class="menu-check w_per100" data-action="accordion">
+                                            <li class="li">
+                                                <div class="menu-head depth-one"><h3 class="tit">HOME</h3></div>
+                                                <div class="menu-body depth-one-body">
+                                                    <div class="acco-in">
+                                                        <ul class="sub-ul">
+                                                            <li>
+                                                                <div class="menu-head depth-second depth--active">
+                                                                    <span class="menu-title">시스템 관리</span>
+                                                                    <div>
+                                                                        <label><input type="checkbox"></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-body depth-three">
+                                                                    <ul class="sub-ul">
+                                                                        <li>
+                                                                            <span>공통코드 그룹관리</span>
+                                                                            <label><input type="checkbox"></label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>공통코드 관리</span>
+                                                                            <label><input type="checkbox"></label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>권한관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>메뉴관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>권한별 메뉴관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>게시판 관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>팝업관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>베너관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>오류관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="menu-head depth-second">
+                                                                    <span class="menu-title">사용자 관리</span>
+                                                                    <div>
+                                                                        <label><input type="checkbox"></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-body depth-three">
+                                                                    <ul class="sub-ul">
+                                                                        <li>
+                                                                            <span>사용자 관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>관리자 관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>알림톡 관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>알림톡 이력관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>쪽지 관리</span>
+                                                                            <label><input type="checkbox"> </label>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </li>
+                                                            <!-- <li>
+                                                                <div class="menu-head depth-second">
+                                                                    <span class="menu-title">회계공시 관리</span>
+                                                                    <div>
+                                                                        <label><input type="checkbox"></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-body depth-three">
+                                                                    <li>
+                                                                        <div class="menu-head depth-four">
+                                                                            <span class="menu-title">노동조합 관리</span>
+                                                                        </div>
+                                                                        <div class="menu-body depth-four">
+                                                                            <ul class="sub-ul">
+                                                                                <li>
+                                                                                    <span>노동조합 관리</span>
+                                                                                    <label><input type="checkbox"></label>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <span>노동조합 체계관리</span>
+                                                                                    <label><input type="checkbox"></label>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                </div>
+                                                            </li> -->
+                                                        </ul>
+                                                    </div>
+                                                </div>                      
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+            </html>
+        </div>
+        <div class="gnb__bg"></div>
+    </body>
+</html>
