@@ -58,7 +58,7 @@ header .nav .memberShip{font-size:13px;position:absolute;background:#eee;color:#
 
 /* 상단 GNB */
 #gnb1 > ul { display: flex; }
-#gnb1 > ul > li { flex: 0 0 auto; margin-right: 16px; padding: 0 3.5rem; }
+#gnb1 > ul > li { flex: 0 0 auto; margin-right: 16px; padding: 0 1.6rem; }
 #gnb1 > ul > li > a { line-height: 6.4rem; font-weight: bold; font-size: 1.9rem; color: #555555; display: inline-flex; align-items: center; }
 #gnb1 > ul > li.plus > a::after { content: ""; background: url(../images/arrow__bottom-bk.svg) no-repeat center; display: inline-block; margin-left: 0.8rem; width: 2rem; height: 2rem; background-size: 2rem auto; transition: all 0.3s; }
 #gnb1 > ul > li.active > a { color: #21A366; }
