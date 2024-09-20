@@ -18,7 +18,6 @@
 </head>
 <body>
     <div id="top">
-
 		<header class="header">
             <div class="inner">
             <div class="header__btm">
@@ -29,6 +28,7 @@
                     </a>
                 </h1>
                 <div class="right__icon__set">
+					<!-- 해당 주석 부분은 로그인 전 상태입니다. -->
                     <!-- <a href="login.html" class="login">
                         <img src="images/icon20-1.png" alt="검색 아이콘">
                         <span>로그인</span>
@@ -43,6 +43,9 @@
                         <span>회원가입</span>
                     </a> -->
 					<div class="user__info">
+						<!-- 기존 카운트 임시 삽입 -->
+						<ul id="cnt" class="clear">
+							<li><span>일일 <i></i></span><b>14</b></li><li><span>주간 <i></i></span><b>130</b></li><li><span>월간 <i></i></span><b>731</b></li><li><span>연간 <i></i></span><b>12182</b></li></ul>
                         <a class="reset" href="javascript:void(0)" onclick="fn_reset()">관리자 패스워드 변경</a>
                         <span class="user__name">
 							<img src="images/icon__user.png" alt="유저 아이콘">
@@ -59,79 +62,173 @@
                 <div>
                     <nav id="gnb1">
                         <ul id="head_menu" class="top__menu">
-                            <li class="plus"> <a href="javascript:void(0);">시스템안내
+                            <li class="plus"> <a href="javascript:void(0);">시스템 관리
                                 
                             </a>
                                 <div class="sub__menu">
                                     <ul>
-                                        <li class="plus"> <a href="javascript:void(0);">회계공시시스템이란</a>
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="accn__desc.html">회계공시시스템이란</a> </strong>
-                                            
+                                        <li class="plus"> <a href="javascript:void(0);">공통코드 그룹관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">공통코드 그룹관리</a> </strong>
+												<ul>
+												</ul>
                                             </div>
                                         </li>
-                                        <li class="plus"> <a href="javascript:void(0);">주요회계공시항목설명</a>
-                                            <!-- dep3 오른쪽 영역 -->
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="main__accn__desc.html">주요회계공시항목설명</a> </strong>
-                                          
+                                        <li class="plus"> <a href="javascript:void(0);">공통코드 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">공통코드 관리</a> </strong>
                                             </div>
                                         </li>
-                                        <li class="plus"> <a href="javascript:void(0);">공지사항</a>
-                                            <!-- dep3 오른쪽 영역 -->
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="notice.html">공지사항</a> </strong>
-                 
+                                        <li class="plus"> <a href="javascript:void(0);">권한관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">권한관리</a> </strong>
                                             </div>
                                         </li>
-                                        <li class="plus"> <a href="javascript:void(0);">자주묻는질문</a>
-                                            <!-- dep3 오른쪽 영역 -->
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="faq.html">자주묻는질문</a></strong>
+                                        <li class="plus"> <a href="javascript:void(0);">메뉴관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">메뉴관리</a></strong>
                                             </div>
                                         </li>
-                                   
+										<li class="plus"> <a href="javascript:void(0);">권한별 메뉴관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">권한별 메뉴관리</a></strong>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">게시판 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">게시판 관리</a></strong>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">팝업관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">팝업관리</a></strong>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">베너관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">베너관리</a></strong>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">오류관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">오류관리</a></strong>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="plus"> <a class="open--depth-second" href="javascript:void(0);">회계공시열람
+                            <li class="plus"> <a class="open--depth-second" href="javascript:void(0);">사용자 관리
                             </a>
                                 <div class="sub__menu">
                                     <ul>
-                                        <li class="plus"> <a href="javascript:void(0);">회계공시열람</a>
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="accn__open.html">회계공시열람</a> </strong>
+                                        <li class="plus"> <a href="javascript:void(0);">사용자 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">사용자 관리</a> </strong>
                                                 <ul>
-                              
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li class="plus"> <a href="javascript:void(0);">회계공시여부조회</a>
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">회계공시여부조회</a> </strong>
+                                        <li class="plus"> <a href="javascript:void(0);">관리자 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">관리자관리</a> </strong>
                                                 <ul>
-                        
                                                 </ul>
                                             </div>
                                         </li>
-                                  
+										<li class="plus"> <a href="javascript:void(0);">알림톡 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">알림톡 관리</a> </strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">알림톡 이력관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">알림톡 이력관리</a> </strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">쪽지 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">쪽지 관리</a> </strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
 
-                            <li class="plus"> <a class="open--depth-second" href="javascript:void(0);">회계공시등록
+                            <li class="plus"> <a class="open--depth-second" href="javascript:void(0);">회계공시 관리</a>
+                                <div class="sub__menu">
+                                    <ul>
+                                        <li class="plus"> <a href="javascript:void(0);">노동조합 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">노동조합 관리</a> </strong>
+                                                <ul>
+                              						<li><a href="#">노동조합 관리</a></li>
+													<li><a href="#">노동조합 체계관리</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="plus"> <a href="javascript:void(0);">회계공시 대상자 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">회계공시 대상자 관리</a></strong>
+                                                <ul>
+													<li><a href="#">회계공시 대상자 관리</a></li>
+													<li><a href="#">회계공시 대상자 제외관리</a></li>
+													<li><a href="#">회계공시 대상자 검증관리</a></li>
+													<li><a href="#">회계공시 대상자 확정여부 조회</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">회계공시 관리</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">회계공시 관리</a></strong>
+                                                <ul>
+													<li><a href="#">입력기간관리</a></li>
+													<li><a href="#">노동조합별 입력기간 관리</a></li>
+													<li><a href="#">회계공시 근거자료 관리</a></li>
+													<li><a href="#">회계공시 결과관리</a></li>
+													<li><a href="#">조회기간 관리</a></li>
+													<li><a href="#">가맹노조(산하조직) 조회</a></li>
+													<li><a href="#">회계공시 여부관리</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+							<li class="plus"> <a class="open--depth-second" href="javascript:void(0);">통계및보고서 관리
                             </a>
                                 <div class="sub__menu">
                                     <ul>
-                                        <li class="plus"> <a href="javascript:void(0);">회계공시등록</a>
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="public__register.html">회계공시등록</a> </strong>
+                                        <li class="plus"> <a href="javascript:void(0);">통계적 활용</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="#">통계적 활용</a> </strong>
                                                 <ul>
-                              
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li class="plus"> <a href="javascript:void(0);">가맹노조산하조직관리</a>
-                                            <div class="dep3"> <strong class="dep3__title"> <a href="union__management.html">가맹노조산하조직관리</a> </strong>
+                                        <li class="plus"> <a href="javascript:void(0);">회계공시 결과현황</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">회계공시 결과현황</a> </strong>
                                                 <ul>
-                    
                                                 </ul>
                                             </div>
                                         </li>
-                                  
+										<li class="plus"> <a href="javascript:void(0);">회계공시 현황</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">회계공시 현황</a></strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">국세청 자료출력</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">국세청 자료출력</a> </strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">망문자 통계</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">망문자 통계</a></strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">알림톡 통계</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">알림톡 통계</a></strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
+										<li class="plus"> <a href="javascript:void(0);">보고서 출력</a>
+                                            <div class="dep3"> <strong class="dep3__title"> <a href="javascript:void(0);">보고서 출력</a></strong>
+                                                <ul>
+                                                </ul>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>

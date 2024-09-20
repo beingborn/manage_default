@@ -38,24 +38,17 @@ function fn_width(){
 }
 
 
-
-
-
 // new header js
 $(document).ready(function() {
     const gnbTop__Menu = $('#gnb1 > .top__menu > li.plus > a');
     const gnbSub__Menu = $('#gnb1 .sub__menu > ul > li > a');
-
     let gnbOpenMenu;
-
     gnbTop__Menu.click(function() {
         gnbOpenMenu = $(this).parent(); 
         const isItOpen = gnbOpenMenu.hasClass('active');
-     
         if (isItOpen) {
             gnbOpenMenu.removeClass('active');
             $('.gnb__bg').hide()
-
         } else {
             // 모든 상위 메뉴에서 'active' 클래스 제거
             gnbTop__Menu.parent().removeClass('active');
@@ -63,7 +56,6 @@ $(document).ready(function() {
             gnbOpenMenu.addClass('active');
             $('.gnb__bg').show()
         }
-        
         const firstSubMenu = gnbOpenMenu.find('.sub__menu ul li:first-child a');
         if (firstSubMenu.length > 0) {
             gnbOpenMenu.siblings().find('.sub__menu ul li').removeClass('active');
@@ -75,10 +67,9 @@ $(document).ready(function() {
         gnbSub__Menu.parent().removeClass('active');
         gnbOpenSub__Menu.addClass('active');
         });
-
-
         $('.gnb__bg').click(function(){
           gnbOpenMenu.removeClass('active');
+		  gnbSub__Menu.parent().removeClass('active');
           $(this).hide();
         })
     });

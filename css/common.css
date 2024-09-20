@@ -85,6 +85,7 @@ table tr.style1 > td{background: #cee9fd !important;}
 .table.horizontal tbody th{background:#F8F8F8;text-align:left;padding:0 1.5rem;}
 .table.horizontal td{width:auto;padding:5px 6px;color:#333;}
 .table.horizontal input[type="text"], .table.horizontal textarea, .table.horizontal select, .table.horizontal input[type=password], .table.horizontal button[class*="btn"]{border-radius:0;height:35px;}
+.table.vertical button[class*="btn"]{border-radius: 0; height: 35px;} /* new button css 09.20 */
 
 .table.ellipBox tbody td{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
