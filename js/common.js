@@ -126,7 +126,7 @@ $(document).ready(function() {
 
 	// 권한별 탭 관리
 	$(document).ready(function(){
-		$(".authTable tr").click(function (e) {
+		$(".authTable tbody tr").click(function (e) {
 		  e.stopPropagation(); 
 		  var idx = $(this).index();  
 		  $(".tabContent").hide();

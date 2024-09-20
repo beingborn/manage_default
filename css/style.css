@@ -70,6 +70,7 @@ table.list th{border-right:0;}
 table .txt_c td{text-align:center;}
 table.hover.pointer{cursor:pointer;}
 table.hover tbody tr:hover, table.hover tbody tr.on{background:#eaf1f6;}
+table.hover tbody tr.strong {background-color: #eaf1f6!important;} /* hover 무시 */
 table td div.on{padding:0 18px;height:35px;line-height:35px;background:#eaf1f6;}
 
 .tableBorder{border-bottom:1px solid #ddd;border-top:2px solid #505050;}
@@ -106,8 +107,9 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.menu-check {border-top: 2px solid #505050;;}
 	.menu-check .depth-one {padding: 2.5rem 1rem;}
     .menu-check .depth-one .tit {font-size: 2.1rem; font-weight: 700;}
-    .menu-check .depth-second {border-bottom: 0.1rem solid #ddd; border-top: 0.1rem solid #ddd;font-size: 1.8rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 1rem;}
-    .menu-check .depth-three .sub-ul {padding: 0.7rem 1rem 0.7rem 1.6rem;}
+    .menu-check .depth-second {border-top: 0.1rem solid #ddd;font-size: 1.8rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 1rem;}
+    .menu-check .depth-three {border-top: 0.1rem solid #ddd;}
+	.menu-check .depth-three .sub-ul {padding: 0.7rem 1rem 0.7rem 1.6rem;}
     .menu-check .depth-three .sub-ul > li, .menu-check .depth-four .sub-ul > li{display: flex; justify-content: space-between; align-items: center; min-height: 35px;} 
     .menu-check .depth-three .sub-ul > li > span, .menu-check .depth-four .sub-ul > li > span {position: relative; display: flex; align-items: center;}
     .menu-check .depth-three .sub-ul > li > span::before, .menu-check .depth-four .sub-ul > li > span::before {content: ''; display: inline-block; width: 0.4rem; height: 0.4rem; background-color: #000; border-radius: 50%; margin-right: 0.8rem;} 
