@@ -116,6 +116,8 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.menu-check .depth-four {padding: 0.7rem 1rem;}
 	.menu-check .sub-ul label {display: flex;}
 	.menu-check input[type="checkbox"] {width: 20px; height: 20px;}
+	.menu-check.hover .menu-body.depth-three li:hover {background:#eaf1f6;}
+	.menu-check.hover li.on {background: #eaf1f6;}
 	/* 파일 업로드 커스텀 */
 	.preview {border: 1px solid #ddd;}
 	.upload_file_name {padding-left: 10px;}

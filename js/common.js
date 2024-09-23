@@ -3,7 +3,7 @@ $(function(){fn_width();});
 
 // WIDTH LAYOUT
 function fn_width(){
-	var clsArr = ['w_per', 'w_px',  'mw_',  'miw_', 'div_per', 'h_', 'ineH_', 'ml', 'ml_', 'mt', 'mt_', 'mr' , 'mr_', 'mb', 'mb_', 'pl', 'pt', 'pr', 'pb'];
+	var clsArr = ['w_per', 'w_px',  'mw_',  'miw_', 'div_per', 'btn_perB', 'h_', 'ineH_', 'ml', 'ml_', 'mt', 'mt_', 'mr' , 'mr_', 'mb', 'mb_', 'pl', 'pt', 'pr', 'pb'];
 	$(clsArr).each(function(idx, cls) {
 		$("[class*='"+cls+"']").each(function(){
 			var string = $(this).attr('class');
@@ -17,6 +17,7 @@ function fn_width(){
 				case 'mw_'  	 	: $(this).css({'max-width':num + 'px'}); break;
 				case 'miw_' 	 	: $(this).css({'min-width':num + 'px'}); break;
 				case 'div_per' 	 	: if ( num == 100 ){ $(this).css({'width':'100%'}); } else { $(this).css({'width':'calc(' + num + '% - 10px)'}); } break;
+				case 'btn_perB' 	: if ( num == 333 ){ $(this).css({'width':'33.33333333%'}); } else { $(this).css({'width':'calc(' + num + '% - 86px)'}); } break;
 				case 'h_'   	 	: if ( className.indexOf( 'per' ) >=0 ){ $(this).css({'height':num + '%'}); } else { $(this).css({'height':num + 'px'}); } break;
 				case 'ineH_'	 	: if ( className.indexOf( 'h' ) >=0 ){ $(this).css({'width':num + '.5px'}); } else { $(this).css({'line-height':num + 'px'}); } break;
 				case 'ml'  		 	: $(this).css({'margin-left':num + 'px'}); break;
@@ -72,6 +73,7 @@ $(document).ready(function() {
     });
 
 
+
 	// 노동조합 체계 관리	
 	$(document).ready(function () {
 		$('.system-list .menu-head').on('click', function () {
@@ -86,7 +88,6 @@ $(document).ready(function() {
 			toggleMenuButton(currentHead, isClosed)
 			if (!isClosed) {
 				resetSubMenuStyles(currentHead)
-			
 			}
 		})
 
@@ -105,7 +106,7 @@ $(document).ready(function() {
 		}
 		);
 		}
-	});
+
 
 
 	// 권한별 메뉴 관리
@@ -114,39 +115,34 @@ $(document).ready(function() {
 		const currentHead = $(this)
 		const currentBody = $(this).next('.menu-body')
 		const isClosed = currentBody.css('display') === "none";
-
 		if(currentHead.hasClass('active')){
 			currentHead.removeClass('active')
 		}else {
 			$('.menu-head').removeClass('active');
 			currentHead.addClass('active');
 		}
-
-
 		currentBody.slideToggle();
-		if(!isClosed){resetSubMenuStyles(currentHead)}
+		if (!isClosed) {
+			resetSubMenuStyles(currentHead)
+			resetMenuBackground(currentHead)
+		}
 	})
-	
-	$('.menu-check input[type="checkbox"]').on('click', function(e) {
-		e.stopPropagation();  
-	});
-	})	
+	$('.menu-check input[type="checkbox"]').on('click', function(e) {e.stopPropagation()});
+	function resetMenuBackground(){currentHead.next(".menu-body").find('.depth-three li').removeClass('on');}})	
+});
 
 	// 권한별 탭 관리
-	$(document).ready(function(){
-		$(".authTable tbody tr").click(function (e) {
-		  e.stopPropagation(); 
-		  var idx = $(this).index();  
-		  $(".tabContent").hide();
-		  $(".tabContent").eq(idx).fadeIn();
-		});
-	  });
 
+	$(".authTable tbody tr").click(function (e){
+	e.stopPropagation(); 
+	let idx = $(this).index();  
+	$(".tabContent").hide();
+	$(".tabContent").eq(idx).fadeIn();
+	});
 
+	  
 
-
-
-
+  
 
 
 $(document).ready(function(){
