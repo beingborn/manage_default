@@ -53,17 +53,17 @@
                             <div class="flexBox">
                                 <div>
                                     <h3 class="dataTitle">메뉴</h3>
-                                    <ul class="menu-check hover menu-info mr20 miw_280" data-action="accordion">
+                                    <ul class="menu-check menu-info mr20 miw_280" data-action="accordion">
                                         <li class="li">
                                             <div class="menu-head depth-one"><h3 class="tit">HOME</h3></div>
                                             <div class="menu-body depth-one-body">
                                                 <div class="acco-in">
-                                                    <ul class="sub-ul">
+                                                    <ul>
                                                         <li>
                                                             <div class="menu-head depth-second">
                                                                 <span class="menu-title">시스템 안내</span>
                                                             </div>
-                                                            <div class="menu-body depth-three">
+                                                            <div class="menu-body depth-three hover">
                                                                 <ul class="sub-ul">
                                                                     <li><span>회계공시시스템이란</span></li>
                                                                     <li><span>주요회계 공시항목 설명</span></li>
@@ -76,7 +76,7 @@
                                                             <div class="menu-head depth-second">
                                                                 <span class="menu-title">회계공시열람</span>
                                                             </div>
-                                                            <div class="menu-body depth-three">
+                                                            <div class="menu-body depth-three hover">
                                                                 <ul class="sub-ul">
                                                                     <li><span>회계공시열람</span></li>
                                                                     <li><span>회계공시여부 조회</span></li>
@@ -87,7 +87,7 @@
                                                             <div class="menu-head depth-second">
                                                                 <span class="menu-title">회계공시등록</span>
                                                             </div>
-                                                            <div class="menu-body depth-three">
+                                                            <div class="menu-body depth-three hover">
                                                                 <ul class="sub-ul">
                                                                     <li><span>회계공시등록</span></li>
                                                                     <li><span>가맹노조(산하조직)관리</span></li>
@@ -99,9 +99,18 @@
                                                                 <span class="menu-title">회계공시관리</span>
                                                             </div>
                                                             <div class="menu-body depth-three">
-                                                                <ul class="sub-ul">
-                                                                    <li><span>노동조합 관리</span></li>
-                                                                    <li><span>노동조합 체계관리</span></li>
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="menu-head depth-four">
+                                                                            <span class="menu-title">┗ 노동조합 관리</span>
+                                                                        </div>
+                                                                        <div class="menu-body depth-four hover">
+                                                                            <ul class="sub-ul">
+                                                                                <li><span>노동조합 관리</span></li>
+                                                                                <li><span>노동조합 체계관리</span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </li>
@@ -112,14 +121,18 @@
                                     </ul>
                                 </div>
                                 <script>
-	                                    // 메뉴관리 
-										$('.depth-three .sub-ul li').on('click', function() {
-											$('.depth-three li').removeClass('on');
-											$(this).addClass('on');
-	                                    });
-                                        if($('.depth-three li').hasClass('on')){
-                                        $('.depth-three li').removeClass('active')
-		                                }
+                                // 메뉴 활성화 기능
+	                            let subMenu = $('.menu-check .depth-three .sub-ul > li');
+                                subMenu.on('click', function() {
+                                // 클릭한 요소가 'on' 클래스를 가지고 있으면 제거
+                                if ($(this).hasClass('on')) {
+                                    $(this).removeClass('on');
+                                } else {
+                                // 다른 모든 'li' 요소에서 'on' 클래스 제거하고, 클릭한 요소에 추가
+                                subMenu.removeClass('on');
+                                $(this).addClass('on');
+                                }
+                                });
                                 </script>
 
                                 <div class="content_r">

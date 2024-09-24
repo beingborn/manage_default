@@ -130,19 +130,7 @@ $(document).ready(function() {
 	function resetMenuBackground(){currentHead.next(".menu-body").find('.depth-three li').removeClass('on');}})	
 });
 
-	// 권한별 탭 관리
-
-	$(".authTable tbody tr").click(function (e){
-	e.stopPropagation(); 
-	let idx = $(this).index();  
-	$(".tabContent").hide();
-	$(".tabContent").eq(idx).fadeIn();
-	});
-
-	  
-
-  
-
+	
 
 $(document).ready(function(){
 	var navBgH;
