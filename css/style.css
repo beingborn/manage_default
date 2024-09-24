@@ -111,12 +111,13 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.menu-check .depth-one {padding: 2.5rem 1rem;}
     .menu-check .depth-one .tit {font-size: 2.1rem; font-weight: 700;}
     .menu-check .depth-second {border-top: 0.1rem solid #ddd;font-size: 1.8rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 1rem;}
-	.menu-check .menu-head.depth-four {font-weight: 500; padding: 0rem 1rem 0rem 1.6rem; margin-top: 0.7rem;}
+	.menu-check .menu-head.depth-four {padding: 0rem 1rem 0rem 1.6rem; margin-top: 0.7rem; }
     .menu-check .depth-three {border-top: 0.1rem solid #ddd;}
 	.menu-check .depth-three .sub-ul {padding: 0.7rem 1rem 0.7rem 1.6rem;}
     .menu-check .depth-three .sub-ul > li, .menu-check .depth-four .sub-ul > li{display: flex; justify-content: space-between; align-items: center; min-height: 35px;} 
     .menu-check .depth-three .sub-ul > li > span, .menu-check .depth-four .sub-ul > li > span {position: relative; display: flex; align-items: center;}
-    .menu-check .depth-three .sub-ul > li > span::before, .menu-check .depth-four .sub-ul > li > span::before {content: ''; display: inline-block; width: 0.4rem; height: 0.4rem; background-color: #000; border-radius: 50%; margin-right: 0.8rem;} 
+    .menu-check .depth-four .sub-ul > li > span::before {content: ''; display: inline-block; width: 0.4rem; height: 0.4rem; background-color: #000; border-radius: 50%; margin-right: 0.8rem;} 
+	/* .menu-check .depth-three .sub-ul > li > span::before,  */
 	.menu-check .depth-four  .sub-ul {padding: 0.7rem 1rem 0.7rem 3.2rem}
 	.menu-check .sub-ul label {display: flex;}
 	.menu-check input[type="checkbox"] {width: 20px; height: 20px;}
