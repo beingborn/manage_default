@@ -3,7 +3,7 @@ $(function(){fn_width();});
 
 // WIDTH LAYOUT
 function fn_width(){
-	var clsArr = ['w_per', 'w_px',  'mw_',  'miw_', 'div_per', 'btn_perB', 'h_', 'ineH_', 'ml', 'ml_', 'mt', 'mt_', 'mr' , 'mr_', 'mb', 'mb_', 'pl', 'pt', 'pr', 'pb'];
+	var clsArr = ['w_per', 'w_px',  'mw_',  'miw_', 'div_per', 'h_', 'ineH_', 'ml', 'ml_', 'mt', 'mt_', 'mr' , 'mr_', 'mb', 'mb_', 'pl', 'pt', 'pr', 'pb'];
 	$(clsArr).each(function(idx, cls) {
 		$("[class*='"+cls+"']").each(function(){
 			var string = $(this).attr('class');
@@ -17,7 +17,6 @@ function fn_width(){
 				case 'mw_'  	 	: $(this).css({'max-width':num + 'px'}); break;
 				case 'miw_' 	 	: $(this).css({'min-width':num + 'px'}); break;
 				case 'div_per' 	 	: if ( num == 100 ){ $(this).css({'width':'100%'}); } else { $(this).css({'width':'calc(' + num + '% - 10px)'}); } break;
-				case 'btn_perB' 	: if ( num == 333 ){ $(this).css({'width':'33.33333333%'}); } else { $(this).css({'width':'calc(' + num + '% - 86px)'}); } break;
 				case 'h_'   	 	: if ( className.indexOf( 'per' ) >=0 ){ $(this).css({'height':num + '%'}); } else { $(this).css({'height':num + 'px'}); } break;
 				case 'ineH_'	 	: if ( className.indexOf( 'h' ) >=0 ){ $(this).css({'width':num + '.5px'}); } else { $(this).css({'line-height':num + 'px'}); } break;
 				case 'ml'  		 	: $(this).css({'margin-left':num + 'px'}); break;

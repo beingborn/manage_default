@@ -408,39 +408,25 @@ function fn_fileDown(failId){
 					<button type="button" class="btnG" onclick="fn_reset();">초기화</button>
 					<button type="button" class="btnB" onclick="fn_search();">조회</button>
 					<button type="button" class="btnBk" onclick="fn_new();">신규</button>
-					<button type="button" class="btnBk" onclick="fn_save();">저장</button>
+					<button type="button" class="openPopup btnBk" onclick="";>저장</button>
 					<button type="button" class="btnLd" onclick="fn_delete();">삭제</button>
 					<button type="button" class="btnGr" onclick="fn_save();">자동생성</button>
 				</div>
 			</h2>
 			<form class="searchBox flexBox" id="frmSearch" method="POST">
 				<input type="hidden" id="pageNo" name="pageNo" value="" />
-
 								<div class="select w_per20 miw_160 mw_160">
 									<label for="searchField3" class="blind">검색조건 선택</label>
 									<select name="" id="searchField3">
-										<option value="">전체</option>
-										<option value="1">전국건설산업노동 조합</option>
+										<option value="2023">2023</option>
+										<option value="2022">2022</option>
 									</select>
 								</div>
 				<div class="w_per40 pl8 pr20">
 					<label for="searchText" class="blind">검색어 입력</label> <input
 						type="text" id="" name=""
-						placeholder="조합명을 입력하세요."
+						placeholder="노동조합명을 입력하세요."
 						value="">
-				</div>
-                
-				<div class="flexBox">
-					<label for="" class="pr20">공시여부</label>
-
-					<div class="miw_100">
-                        <input type="radio" id="" name="subject" value="" title="공시대상 전체">
-                        <label for="" class="ineH_40 pr8">전체</label>
-                        <input type="radio" id="" name="subject" value="" title="공시대상 대상">
-                        <label for="" class="ineH_40 pr8">대상</label>
-                        <input type="radio" id="" name="subject" value="" title="공시대상 대상">
-                        <label for="" class="ineH_40" style="">미대상</label>
-					</div>
 				</div>
 			</form>
 			<!-- 하단 업로드 -->
@@ -449,9 +435,7 @@ function fn_fileDown(failId){
 					<div class="flexBox" style="justify-content: end;">
 						<div class="flexBox " style="align-items: center;">
 							<div class="pr10">회계공시 대상년도</div>
-							<div class="h_40 mr10 pl_20 pr_20" style="line-height: 40px; border: 1px solid #ddd;">
-								2023
-							</div>
+							<div class="targetYear h_40 mr6 pl_20 pr_20 txt_c">2023</div>
 							<div class="preview miw_500 h_40 flexBox" style="align-items: center;">
 								<div>
 									<p></p>
@@ -733,68 +717,73 @@ function fn_fileDown(failId){
 							사용자아이디, 승인여부, 파일첨부)</caption>
 						<colgroup>
 							<col style="width: 6%;">
-							<col style="width: 24%;"> 
+							<col style="width: 6%;"> 
+							<col style="width: 24%;">
 							<col style="width: 6%;">
-							<col style="width: 3%;">
 							<col>
 							<col>
 							<col>
-							<col style="width: 4%;">
-							<col style="width: 4%;">
-							<col style="width: 4%;">
+							<col>
+							<col style="width: 6%;">
+							<col style="width: 6%;">
+							<col style="width: 6%;">
+							<col style="width: 6%;">
 						</colgroup>
 						<thead>
 							<tr>
 								<th>번호</th>
+								<th>회계연도</th>
 								<th>노동조합명</th>
-								<th>대표자명</th>
-								<th>주부<br class="pcOnly">여부</th>
-								<th>총연합단체</th>
-								<th>연합단체</th>
-								<th>단위노동조합
-									<br>
-									(산별/지역/업종)
-								</th>
-								<th>지부</th>
-								<th>지회</th>
-								<th>분회</th>
-	
+								<th>주/부<br>여부</th>
+								<th>관리기관</th>
+								<th>관할지청</th>
+								<th>행정관청</th>
+								<th>사업자등록번호</th>
+								<th>대표자</th>
+								<th>설립연월일</th>
+								<th>근로자수</th>
+								<th>조합원수</th>	
 							</tr>
 						</thead>
 						<tbody class="txt_c">
 										<tr>				
 											<td class="txt_c">1</td>
-											<td class="txt_l">강원도지역버스노동조합</td>
-											<td class="txt_c">김XX</td>
-											<td class="txt_c">주</td>
-											<td class="txt_l">한국노동조합총연맹</td>
-											<td class="txt_l">전국자동차노동조합연맹</td>
-											<td class="txt_l">강원도지역버스노동조합</td>
+											<td class="txt_c">2023</td>
+											<td class="txt_l">테스트</td>
+											<td class="txt_c"></td>
+											<td class="txt_l"></td>
+											<td class="txt_l"></td>
+											<td class="txt_l"></td>
+											<td class="txt_c"></td>
+											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 										</tr>
 										<tr>
 											<td class="txt_c">2</td>
-											
-											<td class="txt_l">강원특별자치도교육청노동조합</td>
-											<td class="txt_c">최X덕</td>
-											<td class="txt_c">주</td>
-											<td class="txt_l">한국노동조합총연맹</td>
-											<td class="txt_l">교육청노동조합연맹</td>
-											<td class="txt_l">강원특별자치도청공무원노동조합</td>
+											<td class="txt_c">2023</td>
+											<td class="txt_l">테스트</td>
+											<td class="txt_c"></td>
+											<td class="txt_l"></td>
+											<td class="txt_l"></td>
+											<td class="txt_l"></td>
+											<td class="txt_c"></td>
+											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 										</tr>
 										<tr>
 											<td class="txt_c">3</td>
-											<td class="txt_l">강원특별자치도교육청노동조합</td>
-											<td class="txt_c">최X덕</td>
-											<td class="txt_c">주</td>
-											<td class="txt_l">한국노동조합총연맹</td>
-											<td class="txt_l">교육청노동조합연맹</td>
-											<td class="txt_l">강원특별자치도청공무원노동조합</td>
+											<td class="txt_c">2023</td>
+											<td class="txt_l">김철수 조합</td>
+											<td class="txt_c"></td>
+											<td class="txt_l"></td>
+											<td class="txt_l"></td>
+											<td class="txt_l"></td>
+											<td class="txt_c"></td>
+											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 											<td class="txt_c"></td>
 											<td class="txt_c"></td>
@@ -807,28 +796,24 @@ function fn_fileDown(failId){
 					&#160;
 					<a href="#" class="step pre" onclick="fnSelectInfs(1);return false; " title="이전페이지로 이동"></a>
 					&#160;<a href="#contents" class="active" title="1페이지">1</a>
-					<!-- &#160;<a href="#" onclick="fnSelectInfs(2);return false; ">2</a>
+					&#160;<a href="#" onclick="fnSelectInfs(2);return false; ">2</a>
 					&#160;<a href="#" onclick="fnSelectInfs(3);return false; ">3</a>
 					&#160;<a href="#" onclick="fnSelectInfs(4);return false; ">4</a>
 					&#160;<a href="#" onclick="fnSelectInfs(5);return false; ">5</a>
-					&#160;<a href="#" onclick="fnSelectInfs(6);return false; ">6</a>
+					<!-- &#160;<a href="#" onclick="fnSelectInfs(6);return false; ">6</a>
 					&#160;<a href="#" onclick="fnSelectInfs(7);return false; ">7</a>
 					&#160;<a href="#" onclick="fnSelectInfs(8);return false; ">8</a>
 					&#160;<a href="#" onclick="fnSelectInfs(9);return false; ">9</a>
-					&#160;<a href="#" onclick="fnSelectInfs(10);return false; ">10</a> -->
+					&#160;<a href="#" onclick="fnSelectInfs(10);return false; ">10</a>   -->
 					&#160;<a href="#" class="step next" onclick="fnSelectInfs(11);return false; " title="다음페이지로 이동"></a>&#160;<a href="#" class="step last" onclick="fnSelectInfs(182);return false; " title="마지막페이지로 이동"></a>&#160;
-				</ul>
-				
-				
-				
+				</ul>	
 			<h3 class="dataTitle">
-				회계공시 대상 노동조합 정보
-				<!-- <div class="btnTootip"><p class="tooltip">설명문 입니다.</p></div> -->
+				노동조합 체계정보
 			</h3>
-			<div class="table horizontal">
+			<div class="table horizontal mb27">
 				<form id="frmInput">
 					<table>
-						<caption>회계공시 대상 노동조합 정보</caption>
+						<caption>노동조합 체계정보</caption>
 						<colgroup>
 							<col width="15%">
 							<col width="35%">
@@ -837,71 +822,157 @@ function fn_fileDown(failId){
 						</colgroup>
 						<tbody>
 							<tr>
-								<th><label for="lbrUniNm" class="compulsory">노동조합명<span class="blind">필수항목입니다.</span></label></th>
-								<td >
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="노동조합명">
-								</td>
-                                <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0" class="compulsory">주부여부<span class="blind">필수항목입니다.</span></label></th>
+                                <th><label for="resnSeCd0">회계연도</label></th>
                                 <td>
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="주부여부">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="2023" class="txt_l" readonly="" title="회계연도">
                                 </td>
+								<th><label for="lbrUniNm">노동조합명</label></th>
+								<td class="flexBox">
+									<input type="hidden" id="lbrUniInptPdId" name="lbrUniInptPdId" value="2024000108">
+									<input type="hidden" id="lbrUniId" name="lbrUniId" value="LU00000924" maxlength="10" title="노동조합명">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" maxlength="300" title="노동조합명">
+									<button type="button" class="btnG">검색</button>
+								</td>
 							</tr>
 							<tr>
-								<th><label for="lbrUniNm">총연합단체</label></th>
+								<th><label for="lbrUniNm">사업장명</label></th>
 								<td >
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="총연합단체명">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="사업장명">
 								</td>
-                                <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">연합단체</label></th>
+                                <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">사업장등록번호</label></th>
                                 <td >
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly=""  title="연합단체명">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly=""  title="사업장등록번호">
                                 </td>
 							</tr>
 							<tr>
-								<th><label for="lbrUniNm">단위노동조합
-									<br>
-									(산별/지역/업종)</label></th>
+								<th><label for="lbrUniNm">대표자명</label></th>
 								<td>
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly=""  title="단위노동조합명">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly=""  title="대표자명">
 								</td>
-                                <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">지부</label></th>
+                                <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">설립연월일</label></th>
                                 <td>
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly=""  title="지부명">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly=""  title="설립연월일">
                                 </td>
 							</tr>
 							<tr>
-								<th><label for="lbrUniNm">지회</label></th>
+								<th><label for="lbrUniNm">근로자수</label></th>
 								<td>
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="지회명">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="근로자수">
 								</td>
-                                <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">분회</label></th>
+                                <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">조합원수</label></th>
                                 <td>
-									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="분회명">
+									<input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="조합원수">
                                 </td>
 							</tr>
-						
 						</tbody>
 					</table>
 				</form>
 			</div>
-
+			<h3 class="dataTitle">노동조합 체계정보</h3>
+			<div class="table">
+				<table class="table hover miw_600" id="tableList">
+					<caption>접근권한관리 조회결과(번호, 노동조합명, 총연합단체, 연합단체, 노동조합, 사용자아이디, 승인여부, 파일첨부)</caption>
+					<colgroup>
+						<col style="width: 6%;">
+						<col style="width: 8%;">
+						<col>
+						<col>
+						<col style="width: 12%;">
+						<col style="width: 8%;">
+						<col style="width: 8%;">
+						<col style="width: 8%;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>순번</th>
+							<th>주/부 여부</th>
+							<th>총연합단체</th>
+							<th>연합단체</th>
+							<th>단위노동조합</th>
+							<th>지부</th>
+							<th>지회</th>
+							<th>분회</th>
+						</tr>
+					</thead>
+					<tbody class="txt_c">
+						<tr>
+							<td class="txt_c">1</td>
+							<td class="txt_c">주</td>
+							<td class="txt_l"></td>
+							<td class="txt_c"></td>
+							<td class="txt_c"></td>
+							<td class="txt_l"></td>
+							<td class="txt_c"></td>
+							<td class="txt_c"></td>
+						</tr>
+						<tr>
+							<td class="txt_c">2</td>
+							<td class="txt_c">부</td>
+							<td class="txt_l">테스트</td>
+							<td class="txt_c"></td>
+							<td class="txt_c"></td>
+							<td class="txt_l"></td>
+							<td class="txt_c"></td>
+							<td class="txt_c"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 				</div>
 			</div>
-
-		
-
-
-
+			<div id="popup" class="shadow miw_680" tabindex="0">
+				<h2 class="title">에러정보</h2>
+				<div class="body">
+					<h3 class="mt10 relative"><span class="unit">건수 : <span id="modalCnt">4건</span></span></h3>
+					<div class="table  h_200 mb58 table_wrap">
+						<table class="table hover theadF" id="tableList">
+							<caption>에러정보</caption>
+							<colgroup>
+								<col style="width: 20%;">
+								<col style="width: 80%;">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>에러 행</th>
+									<th>내용</th>
+								</tr>
+							</thead>
+							<tbody class="txt_c">
+								<tr>
+									<td class="txt_c">1</td>
+									<td class="txt_l">
+										- 노동조합명 신규
+										<br>
+										- 총연합단체 신규
+										<br>
+										- 단위노동조합 신규
+										<br>
+										- 노동조합의 자신위치 없음
+									</td>
+								</tr>
+								<tr>
+									<td class="txt_c">10</td>
+									<td class="txt_l">
+									</td>
+								</tr>
+								<tr>
+									<td class="txt_c">150</td>
+									<td class="txt_l">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="buttonRow mb20 long txt_c">
+						<button type="button" class="close btnG ml0" id="Btnclose" style="margin-left: 0px;">닫기</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
 </html></div>
     <div id="footer">
-<!-- <div class="Footer">Footer</div> -->
-
-	<!-- Loading page -->
-	<!-- <div class="loading"><p><span class="dot"></span></p><p>Load<span></span>ng</p></div> -->
-	<!-- // Loading page -->
-	
 	<footer>
 		<div class="footer__bottom" style="background-color: #F0F0F0;">
 			<div class="inner">

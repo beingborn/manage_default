@@ -103,6 +103,9 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 .pageError .inner{color:#fff;font-size:1.8rem;font-weight:400;text-align:center;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);-moz-transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);-o-transform:translate(-50%, -50%);transform:translate(-50%, -50%);width:100%;max-width:1280px;}
 .pageError .inner button{border:1px solid #191919;padding:10px 20px;border-radius:5px;background:#333;color:#fff;}
 
+	/* 대상년도 */
+	.targetYear {display: flex; justify-content: center; align-items: center; border: 1px solid #ddd;}
+
 	/* 메뉴별 권한 관리 */
 	.menu-check {border-top: 2px solid #505050;;}
 	.menu-check .depth-one {padding: 2.5rem 1rem;}
