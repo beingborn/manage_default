@@ -144,6 +144,7 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.system-list .menu-head.depth-four {padding-left: 20px;}
 	.system-list .menu-head.depth-five {padding-left: 24px;}
 	.system-list .menu-head.depth-six {padding-left: 28px;}
+	.system-list .menu-head .menu-title {max-width: 20rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 
 	 /* 노동조합 체계 제목 스타일 */
 	.menu-head:not(.depth-one){cursor: pointer;}
