@@ -25,8 +25,34 @@ header .nav .memberShip{font-size:13px;position:absolute;background:#eee;color:#
 .navBg{display:none;width:100%;position:absolute;background:#F9F9F9;border-top:1px solid #ddd;box-shadow:2px 2px 7px rgba(0,0,0,0.2);}  */
 
 
-/* new header css */
 
+/* 폰트 */ 
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 800;
+	font-display: swap;
+	src: local('Pretendard GOV ExtraBold'), url(../font/woff2/PretendardGOV-ExtraBold.woff2) format('woff2'), url(../font/woff/PretendardGOV-ExtraBold.woff) format('woff');
+}
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 700;
+	font-display: swap;
+	src: local('Pretendard GOV Bold'), url(../font/woff2/PretendardGOV-Bold.woff2) format('woff2'), url(../font/woff/PretendardGOV-Bold.woff) format('woff');
+}
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 500;
+	font-display: swap;
+	src: local('Pretendard GOV Medium'), url(../font/woff2/PretendardGOV-Medium.woff2) format('woff2'), url(../font/woff/PretendardGOV-Medium.woff) format('woff');
+}
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 400;
+	font-display: swap;
+	src: local('Pretendard GOV Regular'), url(../font/woff2/PretendardGOV-Regular.woff2) format('woff2'), url(../font/woff/PretendardGOV-Regular.woff) format('woff');
+}
+
+/* new header css */
 .header {position: relative;width: 100%;z-index: 1000;background-color: #fff;border-bottom: 0.15rem solid #ededed;transition: all 0.5s;}
 .header__fixed {position: fixed;left: 0;top: 0;width: 100%;transform: translateY(0);}
 .banner__text {display: inline-block;font-size: 1.6rem;}
@@ -40,11 +66,12 @@ header .nav .memberShip{font-size:13px;position:absolute;background:#eee;color:#
 /* new userinfo */
 .user__info {display: flex; align-items: center;}
 .user__info .reset {background-color: #eee; color: #767676; border-radius: 8px; font-size: 1.3rem; font-weight: normal;}
-.user__info .user__name {font-size: 1.7rem; font-weight: 700; margin-left: 12px;}
+.user__info .user__name {font-size: 1.7rem; font-weight: 700; margin-left: 12px; padding: 0 12px;}
 .user__name {display: flex; align-items: center;}
 .user__name img {margin-right: 8px;}
 
-.header__btm { position: relative; align-items: center; display: flex; margin-bottom: 1.6rem; padding-top: 2rem; }
+.header__btm { position: relative; align-items: center; display: flex; height: 8rem; }
+.header .header__btm .logo {width: 36rem; max-height: 3rem;}
 .right__icon__set { display: flex; align-items: center; margin-left: auto; }
 .right__icon__set a { font-weight: bold; font-size: 1.7rem; padding: 1rem 1.2rem; display: inline-flex; align-items: center; }
 .right__icon__set a.hamburger {display: none;}
