@@ -28,7 +28,7 @@ input[type="radio"]:disabled{background:#ccc;box-shadow:none;opacity:0.8;cursor:
 select::-ms-expand {display:none}
 
 
-.header, .header * {
+.header, .header *, footer * {
 letter-spacing: normal;
 font-family: "Pretendard GOV Variable", "Pretendard GOV",
 -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue",
