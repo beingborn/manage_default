@@ -207,15 +207,19 @@ footer .copy{font-size:1.4rem;color:#999;margin-top:0.3rem;} */
 
 /* new footer css */
 footer { position: relative; overflow: hidden;}
+footer .inner {height: 200px;}
 footer .footer__top { border: 0.1rem solid #D8D8D8; height: 5.6rem; }
 .footer__bottom .footer__logo { padding-top: 4rem; }
 .footer__bottom .footer__flex { display: flex; align-items: flex-start; padding-top: 4rem; padding-bottom: 4rem; justify-content: space-between; }
 .footer__info p { font-size: 1.7rem; }
-.footer__info p:nth-child(1) { margin-bottom: 0.4rem; line-height: 1.5; }
-.footer__info p:nth-child(2) { margin-bottom: 0.4rem; }
+.footer__info p:nth-child(1) { margin-bottom: 0.4rem;}
+.footer__info p:nth-child(2) { margin-bottom: 0.4rem;}
 .footer__global .copyright { color: #555555; }
 .footer__global .copyright p { font-size: 1.5rem; }
-/* new footer css */
+
+@media all and (min-width: 1440px) {
+	.footer__info p {line-height: 1.9rem;}
+}
 
 
 

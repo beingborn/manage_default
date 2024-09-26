@@ -94,9 +94,7 @@ $(document).ready(function() {
 			const newBackground = open
 				? "url(images/arrow__top-blue.svg) no-repeat center"
 				: "url(images/arrow__bottom-bk.svg) no-repeat center";
-			menuHead
-				.find(".menu-btn")
-				.css("background", newBackground);
+			menuHead.find(".menu-btn").css("background", newBackground);
 		}
 		function resetSubMenuStyles(currentHead) {
 			currentHead.next(".menu-body").find(".menu-head").each(function () {
@@ -110,7 +108,7 @@ $(document).ready(function() {
 
 	// 권한별 메뉴 관리
 	$(document).ready(function(){
-	$('.menu-check .menu-head:not(.depth-one)').on('click', function(){
+	$('.menu-check .menu-head').on('click', function(){
 		const currentHead = $(this)
 		const currentBody = $(this).next('.menu-body')
 		const isClosed = currentBody.css('display') === "none";
@@ -127,7 +125,7 @@ $(document).ready(function() {
 		}
 	})
 	$('.menu-check input[type="checkbox"]').on('click', function(e) {e.stopPropagation()});
-	function resetMenuBackground(){currentHead.next(".menu-body").find('.depth-three li').removeClass('on');}})	
+	function resetMenuBackground(){currentHead.next(".menu-body").find('.sub-ul > li').removeClass('on');}})	
 });
 
 	
