@@ -108,18 +108,25 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 
 	/* 메뉴별 권한 관리 */
 	.menu-check {border-top: 2px solid #505050;}
-    .menu-check .depth-one {border-top: 0.1rem solid #ddd;font-size: 1.8rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 1rem;}
-	.menu-check .menu-head.depth-three {padding: 0rem 1rem 0rem 1.6rem; margin-top: 0.7rem; }
-    .menu-check .depth-second {border-top: 0.1rem solid #ddd;}
-	.menu-check .depth-second .sub-ul {padding: 0.7rem 1rem 0.7rem 1.6rem;}
-    .menu-check .depth-second .sub-ul > li, .menu-check .depth-three .sub-ul > li{display: flex; justify-content: space-between; align-items: center; min-height: 35px;} 
-    .menu-check .depth-three .sub-ul > li > span, .menu-check .depth-four .sub-ul > li > span {position: relative; display: flex; align-items: center;}
-    .menu-check .depth-three .sub-ul > li > span::before {content: ''; display: inline-block; width: 0.4rem; height: 0.4rem; background-color: #000; border-radius: 50%; margin-right: 0.8rem;} 
-	.menu-check .depth-three .sub-ul {padding: 0.7rem 1rem 0.7rem 3.2rem}
+    .menu-check .menu-head.depth-one {border-top: 0.1rem solid #ddd; border-bottom: 0.1rem solid #ddd ;font-size: 1.8rem; font-weight: 700; padding: 0.7rem 1.2rem;}
+    .menu-check .menu-head.depth-second {padding-left: 12px; padding-right: 12px;}
+    .menu-check .menu-head.depth-three {padding-left: 24px; padding-right: 12px; position: relative;}
+    .menu-check .menu-head.depth-three > span {margin-right: auto;}
+	.menu-check .menu-head.depth-three::before {content: ''; display: inline-block; width: 0.4rem; height: 0.4rem; background-color: #000; border-radius: 50%; margin-right: 0.8rem;}
+
+	/* .menu-check .menu-head.depth-three {padding: 0rem 1rem 0rem 1.6rem; margin-top: 0.7rem; } */
+    /* .menu-check .depth-second {border-top: 0.1rem solid #ddd;} */
+	/* .menu-check .depth-one .sub-ul {padding: 0.7rem 1rem 0.7rem 1.6rem;} */
+	/* .menu-check .menu-head.depth-second {padding: 0 1rem 0 1.6rem;} */
+
+	/* .menu-check .menu-body.depth-second {padding: 0.7rem 1rem 0.7rem 1.6rem;} */
+    /* .menu-check .depth-second .sub-ul > li, .menu-check .depth-three .sub-ul > li{display: flex; justify-content: space-between; align-items: center; min-height: 35px;}  */
+    /* .menu-check .depth-three .sub-ul > li > span, .menu-check .depth-four .sub-ul > li > span {position: relative; display: flex; align-items: center;} */
+	/* .menu-check .depth-three .sub-ul {padding: 0.7rem 1rem 0.7rem 3.2rem} */
 	.menu-check .sub-ul label {display: flex;}
 	.menu-check input[type="checkbox"] {width: 20px; height: 20px;}
-	.menu-check .depth-second.hover li:hover {background:#eaf1f6;}
-	.menu-check .depth-three.hover li:hover {background:#eaf1f6;}
+	/* .menu-check .depth-second.hover li:hover {background:#eaf1f6;} */
+	/* .menu-check .depth-three.hover li:hover {background:#eaf1f6;} */
 	.menu-check .sub-ul > li.on {background-color: #eaf1f6;}
 
 	
@@ -150,6 +157,8 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.menu-head {display: flex; justify-content: space-between; align-items: center; position: relative; padding-top: 12px; padding-bottom: 12px;}
 	.menu-head {min-height: 3.5rem;}
 	.menu-head.active {background: rgb(238, 238, 238);}
+	.menu-check .menu-head:not(.depth-one).active {background: #eaf1f6;}
+
 	.system-list .menu-btn {max-width: 20px;min-width: 20px;height: 2rem;background: url(../images/arrow__bottom-bk.svg) no-repeat center ;position: absolute;right: 1.5rem;top: 50%;transform: translateY(-50%); border: none;} /* 화살표 열림 닫힘 버튼 */
 
 	/* 조회 모달 마진 */
