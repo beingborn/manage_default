@@ -2,6 +2,9 @@
 
 .sub1{background:url("../images/sub/bg_sub1_2.png") center center;}
 .sub1_2, .sub1_3, .sub2, .sub3, .sub4{background:url("../images/sub/bg_sub1_2.png") center center;}
+/* new bg Class 2024 1002 이민혁 추가  */
+.sub5 {background: url(../images/sub/bg_sub1_2.png) center center;}
+
 .visual{height:160px;font-weight:bold;color:#fff;background-size:cover;}
 .visual > .inner{height:100%;position:relative;z-index:0;}
 .visual > .inner > p{position:absolute;top:50%;margin-top:-35px;font-size:3.2rem;}
@@ -110,26 +113,13 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 	.menu-check {border-top: 2px solid #505050;}
     .menu-check .menu-head.depth-one {border-top: 0.1rem solid #ddd; border-bottom: 0.1rem solid #ddd ;font-size: 1.8rem; font-weight: 700; padding: 0.7rem 1.2rem;}
     .menu-check .menu-head.depth-second {padding-left: 12px; padding-right: 12px;}
-    .menu-check .menu-head.depth-three {padding-left: 24px; padding-right: 12px; position: relative;}
+    .menu-check .menu-head.depth-three {padding-left: 28px; padding-right: 12px; position: relative;}
     .menu-check .menu-head.depth-three > span {margin-right: auto;}
 	.menu-check .menu-head.depth-three::before {content: ''; display: inline-block; width: 0.4rem; height: 0.4rem; background-color: #000; border-radius: 50%; margin-right: 0.8rem;}
-
-	/* .menu-check .menu-head.depth-three {padding: 0rem 1rem 0rem 1.6rem; margin-top: 0.7rem; } */
-    /* .menu-check .depth-second {border-top: 0.1rem solid #ddd;} */
-	/* .menu-check .depth-one .sub-ul {padding: 0.7rem 1rem 0.7rem 1.6rem;} */
-	/* .menu-check .menu-head.depth-second {padding: 0 1rem 0 1.6rem;} */
-
-	/* .menu-check .menu-body.depth-second {padding: 0.7rem 1rem 0.7rem 1.6rem;} */
-    /* .menu-check .depth-second .sub-ul > li, .menu-check .depth-three .sub-ul > li{display: flex; justify-content: space-between; align-items: center; min-height: 35px;}  */
-    /* .menu-check .depth-three .sub-ul > li > span, .menu-check .depth-four .sub-ul > li > span {position: relative; display: flex; align-items: center;} */
-	/* .menu-check .depth-three .sub-ul {padding: 0.7rem 1rem 0.7rem 3.2rem} */
 	.menu-check .sub-ul label {display: flex;}
 	.menu-check input[type="checkbox"] {width: 20px; height: 20px;}
-	/* .menu-check .depth-second.hover li:hover {background:#eaf1f6;} */
-	/* .menu-check .depth-three.hover li:hover {background:#eaf1f6;} */
-	.menu-check .sub-ul > li.on {background-color: #eaf1f6;}
+	.menu-check .menu-head:not(.depth-one):hover {background: #eaf1f6}
 
-	
 	/* 파일 업로드 커스텀 */
 	.preview {border: 1px solid #ddd;}
 	.upload_file_name {padding-left: 10px;}
