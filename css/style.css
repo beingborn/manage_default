@@ -168,18 +168,18 @@ table tr.readOnly > td input[type="text"]{background:#f1f1f1 !important;}
 
 /* 관리자 메인 이미지에서만 사용 2024.10.04 이민혁 */
 .manage-main {display: flex; justify-content: center; text-align: center;}
-.manage-org {background-image: url('../images/manager_organization.png'); width: 950px; height: 930px;}
+.manage-org {background-image: url('../images/manager_organization.png'); width: 950px; height: 930px; background-position: center;}
 .manage-org-linkGroup {display: flex;}
 .manage-org-wrap {padding-top: 133px;}
 .manage-org-linkGroup:not(.second-col){padding-left: 266px;}
 .manage-org-linkGroup.second-col {padding-left: 514px;}
 .manage-org-linkGroup:not(.row-one){padding-top: 18px;}
-.org-link {width: 169px; height: 70px; background-color: transparent;} /* 투명 버튼 */
+.org-link {width: 169px; height: 70px; background-color: transparent; border-radius: 12px;} /* 투명 버튼 */
 .org-link:hover {background-color: rgba(255, 255, 255, 0.4);} /* 호버 시 표현 */
 /* 회계공시 대상 노동조합 생성 */
 .manage-org-linkGroup.row-three {flex-direction: column;}
-.manage-org-linkGroup.row-three .org-link:nth-of-type(1){height: 40px;}
-.manage-org-linkGroup.row-three .org-link:nth-of-type(2){height: 30px;}
+.manage-org-linkGroup.row-three .org-link:nth-of-type(1){height: 40px; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;}
+.manage-org-linkGroup.row-three .org-link:nth-of-type(2){height: 30px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;}
 .manage-org-linkGroup.row-four {gap: 80px;}
 
 
