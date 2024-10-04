@@ -28,6 +28,8 @@
 .conBody > div.linkBox > a:before{content:"";display:inline-block;position:absolute;width:60px;height:60px;background:rgba(0,0,0,0.5);-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg);right:-30px;bottom:-30px;}
 .conBody > div.linkBox > a:after{content:"+";position:absolute;color:#fff;font-weight:bold;right:6px;bottom:0px;}
 
+
+
 @media only screen and (max-width: 1456px) {.visual{background-size:cover;}}
 @media only screen and (max-width: 1220px) {
 	.conBody .title{font-size:2.2rem;}
