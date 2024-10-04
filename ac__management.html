@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <script type="text/javascript">
+            var contextPath = "/pap";
+        </script>
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/common.css">
+        <!-- <link rel="shortcut icon" href="/pap/common/images/common/favicon.ico"> -->
+        <script src="js/chart.min.js"></script>
+        <script src="js/chartjs-plugin-datalabels.js"></script>
+        <script src="js/jquery-3.7.0.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/lpap.js"></script>
+    </head>
+    <body>
+        <div id="body">
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>회계공시 결과현황</title>
+                    <link rel="stylesheet" href="css/jquery-ui.min.css">
+                    <link rel="stylesheet" href="css/style.css">
+                </head>
+                <body>
+                    <div id="contents">
+                        <div class="visual sub4">
+                            <div class="inner">
+                            <p>회계공시 결과현황</p>
+                            <p>회계공시 결과현황을 관리할 수 있는 페이지입니다.</p>
+                            </div>
+                        </div>
+                        <div class="conBody inner">
+                            <nav class="breadcrumb pb40">
+                                <ol class="path">
+                                    <li class="home"><a href="#" class="txt">홈</a></li>
+                                    <li><a href="#" class="txt">통계및보고서관리</a></li>
+                                    <li><a href="ac__management.html" class="txt">회계공시 결과현황</a></li>
+                                </ol>
+                            </nav>
+                            <h2 class="conTitle pb10 relative">
+                                회계공시 결과현황
+                                <div class="buttonRow" id="btndiv">
+                                    <button type="button" class="btnB" onclick="fn_search();">조회</button>
+                                    <button type="button" class="btnBk" onclick="fn_save();">다운로드</button>
+                                </div>
+                            </h2>
+                            <form id="frmMain" name="frmMain" class="searchBox flexBox">
+                                <div class="relative mw_100 select" style="max-width: 100px;">
+                                    <select id="lbrUniFyr" name="lbrUniFyr" title="전체선택">
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                    </select>
+                                </div>
+                                <label for="lbrUniFyr" class="" style="opacity: 0;">전체선택</label>
+                            </form>
+                            <div class="table mb27 table_wrap">
+                                <table class="table hover miw_600" id="tableList" style="min-width: 600px;">
+                                    <caption>회계 결과 현황</caption>
+                                    <colgroup>
+                                        <col style="width: 24%;">
+                                        <col>
+                                        <col>
+                                        <col style="width: 24%;">
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">구분</th>
+                                            <th>상반기</th>
+                                            <th>하반기</th>
+                                            <th>부득이한 사유</th>
+                                            <th>기타</th>
+                                            <th>합계</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="txt_c">
+                                        <tr class="strong">
+                                            <td class="txt_l">한국노총</td>
+                                            <td class="txt_r">243</td>
+                                            <td class="txt_r">33</td>
+                                            <td class="txt_r">276</td>
+                                            <td class="txt_r">7</td>
+                                            <td class="txt_r">283</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">총연합</td>
+                                            <td class="txt_r">57</td>
+                                            <td class="txt_r">5</td>
+                                            <td class="txt_r">62</td>
+                                            <td class="txt_r">-</td>
+                                            <td class="txt_r">62</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">연합</td>
+                                            <td class="txt_r">118</td>
+                                            <td class="txt_r">12</td>
+                                            <td class="txt_r">130</td>
+                                            <td class="txt_r">2</td>
+                                            <td class="txt_r">132</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">산별노조</td>
+                                            <td class="txt_r">30</td>
+                                            <td class="txt_r">10</td>
+                                            <td class="txt_r">40</td>
+                                            <td class="txt_r">3</td>
+                                            <td class="txt_r">43</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">단위노조(산별제외)</td>
+                                            <td class="txt_r">37</td>
+                                            <td class="txt_r">6</td>
+                                            <td class="txt_r">43</td>
+                                            <td class="txt_r">2</td>
+                                            <td class="txt_r">45</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">지부지회</td>
+                                            <td class="txt_r">1</td>
+                                            <td class="txt_r">-</td>
+                                            <td class="txt_r">1</td>
+                                            <td class="txt_r">-</td>
+                                            <td class="txt_r">1</td>
+                                        </tr>
+                                        <tr class="strong">
+                                            <td class="txt_l">민주노총</td>
+                                            <td class="txt_r">275</td>
+                                            <td class="txt_r">42</td>
+                                            <td class="txt_r">317</td>
+                                            <td class="txt_r">16</td>
+                                            <td class="txt_r">333</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">총연합</td>
+                                            <td class="txt_r">222</td>
+                                            <td class="txt_r">38</td>
+                                            <td class="txt_r">260</td>
+                                            <td class="txt_r">12</td>
+                                            <td class="txt_r">272</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">연합</td>
+                                            <td class="txt_r">20</td>
+                                            <td class="txt_r">1</td>
+                                            <td class="txt_r">21</td>
+                                            <td class="txt_r">-</td>
+                                            <td class="txt_r">21</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">산별노조</td>
+                                            <td class="txt_r">3</td>
+                                            <td class="txt_r">-</td>
+                                            <td class="txt_r">3</td>
+                                            <td class="txt_r">1</td>
+                                            <td class="txt_r">4</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">단위노조(산별제외)</td>
+                                            <td class="txt_r">29</td>
+                                            <td class="txt_r">3</td>
+                                            <td class="txt_r">32</td>
+                                            <td class="txt_r">3</td>
+                                            <td class="txt_r">35</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">지부지회</td>
+                                            <td class="txt_r">1</td>
+                                            <td class="txt_r">-</td>
+                                            <td class="txt_r">1</td>
+                                            <td class="txt_r">-</td>
+                                            <td class="txt_r">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="txt_l">........</td>
+                                            <td class="txt_r"></td>
+                                            <td class="txt_r"></td>
+                                            <td class="txt_r"></td>
+                                            <td class="txt_r"></td>
+                                            <td class="txt_r"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+            </html>
+        </div>
+        <div class="gnb__bg"></div>
+    </body>
+</html>

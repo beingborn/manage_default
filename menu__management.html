@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <script type="text/javascript">
+            var contextPath = "/pap";
+        </script>
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/common.css">
+        <!-- <link rel="shortcut icon" href="/pap/common/images/common/favicon.ico"> -->
+        <script src="js/chart.min.js"></script>
+        <script src="js/chartjs-plugin-datalabels.js"></script>
+        <script src="js/jquery-3.7.0.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/lpap.js"></script>
+    </head>
+    <body>
+        <div id="body">
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>메뉴관리</title>
+                    <link rel="stylesheet" href="css/jquery-ui.min.css">
+                    <link rel="stylesheet" href="css/style.css">
+                </head>
+                <body>
+                    <div id="contents">
+                        <div class="visual sub4">
+                            <div class="inner">
+                                <p>메뉴관리</p>
+                                <p>메뉴를 관리할 수 있는 페이지입니다.</p>
+                            </div>
+                        </div>
+                        <div class="conBody inner">
+                            <nav class="breadcrumb pb40">
+                                <ol class="path">
+                                    <li class="home"><a href="#" class="txt">홈</a></li>
+                                    <li><a href="#" class="txt">시스템 관리</a></li>
+                                    <li><a href="manage__auth.html" class="txt">메뉴관리</a></li>
+                                </ol>
+                            </nav>
+                            <h2 class="conTitle pb10 relative">
+                                메뉴관리
+                                <div class="buttonRow" id="btndiv">
+                                    <button type="button" class="btnG" onclick="fn_reset();">초기화</button>
+                                    <button type="button" class="btnB" onclick="fn_search();">신규</button>
+                                    <button type="button" class="btnBk" onclick="fn_save();">조회</button>
+                                    <button type="button" class="btnBk" onclick="fn_save();">저장</button>
+                                </div>
+                            </h2>
+                            <div class="flexBox">
+                                <div>
+                                    <h3 class="dataTitle">메뉴</h3>
+                                    <ul class="menu-check menu-info mr20 miw_280" data-action="accordion">
+                                        <li class="depth-one-li">
+                                            <div class="menu-head depth-one">
+                                                <span class="menu-title">회계공시열람</span>
+                                            </div>
+                                            <div class="menu-body depth-second">
+                                                <ul class="sub-ul">
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시열람</span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시여부 조회</span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시여부 조회2</span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시여부 조회3</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="depth-one-li">
+                                            <div class="menu-head depth-one">
+                                                <span class="menu-title">회계공시관리</span>
+                                            </div>
+                                            <div class="menu-body depth-second">
+                                                <ul class="sub-ul">
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시관리1</span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시관리2</span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시관리3</span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 회계공시관리4</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="depth-one-li">
+                                            <div class="menu-head depth-one">
+                                                <span class="menu-title">회계공시 관리</span>
+                                            </div>
+                                            <div class="menu-body depth-second">
+                                                <ul class="sub-ul">
+                                                    <li class="depth-second-li">
+                                                        <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 노동조합 관리</span>
+                                                        </div>
+                                                        <div class="menu-body depth-three">
+                                                            <ul class="sub-ul">
+                                                                <li class="depth-three-li">
+                                                                    <div class="menu-head depth-three">
+                                                                        <span class="menu-title">노동조합 관리</span>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="depth-three-li">
+                                                                    <div class="menu-head depth-three">
+                                                                        <span class="menu-title">노동조합 체계관리</span>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="depth-three-li">
+                                                                    <div class="menu-head depth-three">
+                                                                        <span class="menu-title">노동조합 체계관리2</span>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="content_r">
+                                    <h3 class="dataTitle">메뉴 상세정보</h3>
+                                    <div class="table horizontal">
+                                        <form id="frmInput">
+                                            <table>
+                                                <caption>노동조합 체계정보</caption>
+                                                <colgroup>
+                                                    <col width="15%">
+                                                    <col width="35%">
+                                                    <col width="15%">
+                                                    <col width="35%">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th><label for="lbrUniNm">메뉴명</label></th>
+                                                        <td>
+                                                            <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="메뉴명">
+                                                        </td>
+                                                        <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">사용여부</label></th>
+                                                        <td>
+                                                            <input type="radio" class="rcvAgrYn" name="rcvAgrYn" value="Y">사용
+                                                            <input type="radio" class="rcvAgrYn" name="rcvAgrYn" value="N" checked="">미사용
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><label for="lbrUniNm">상위메뉴</label></th>
+                                                        <td>
+                                                            <div class="select w_per100">
+                                                            <select id="ognzUnitCd" name="ognzUnitCd">
+                                                                <option value="">선택</option>
+                                                                <option value="01" selected="selected">상위메뉴1</option>    
+                                                                <option value="02">상위메뉴2</option>    
+                                                                <option value="03">상위메뉴3</option>    
+                                                                <option value="04">상위메뉴4</option>    
+                                                                <option value="05">상위메뉴5</option>    
+                                                                <option value="06">상위메뉴6</option>    
+                                                            </select>
+                                                            </div>
+                                                        </td>
+                                                        <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">메뉴순서</label></th>
+                                                        <td>
+                                                            <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="메뉴순서">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><label for="lbrUniNm">메뉴URL</label></th>
+                                                        <td colspan="3">
+                                                            <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="메뉴URL">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            <label for="resnRm">비고</label>
+                                                        </th>
+                                                        <td colspan="3">
+                                                            <textarea class="h_150" id="resnRm" name="resnRm" maxlength="1000" title="비고" style="height: 150px;"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+            </html>
+        </div>
+        <div class="gnb__bg"></div>
+    </body>
+</html>

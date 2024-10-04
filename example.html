@@ -1,0 +1,777 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<script type="text/javascript"> var contextPath = "/pap";</script>
+	<link rel="stylesheet" href="/pap/common/css/layout.css">
+	<link rel="stylesheet" href="/pap/common/css/common.css">
+	<link rel="shortcut icon" href="/pap/common/images/common/favicon.ico">
+	<script src="/pap/common/js/chart.min.js"></script>
+	<script src="/pap/common/js/chartjs-plugin-datalabels.js"></script>
+	<script src="/pap/common/js/jquery-3.7.0.min.js"></script>
+	<script src="/pap/common/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/pap/common/js/common.js"></script>
+	<script type="text/javascript" src="/pap/common/js/lpap.js"></script>
+</head>
+<body>
+    <div id="top">
+
+
+
+
+
+<!-- <div class="Header">Header</div> -->
+
+    <script>
+        function fn_logout(){
+            if(confirm('로그아웃 하시겠습니까?')){
+                location.href= "/pap/securityout.do";
+            }
+        }
+        
+        function fn_reset(){
+            if(confirm('관리자 패스워드를 변경하시겠습니까?')){
+                location.href= "/pap/member/changeAdminPwd.do";
+            }
+        }
+        
+        $.ajax({
+    		url: '/pap/main/getCntAjax.do',
+    		method: 'POST',
+    		data: {},
+    		success: function(data){
+    			var result = data.useHistory;
+    			var htmlStr1 = "<li>" + "<span>일일 <i></i></span>" + "<b>" + result.dayCnt + "</b>" + "</li>";
+    			var htmlStr2 = "<li>" + "<span>주간 <i></i></span>" + "<b>" + result.weekCnt + "</b>" + "</li>";
+    			var htmlStr3 = "<li>" + "<span>월간 <i></i></span>" + "<b>" + result.monthCnt + "</b>" + "</li>";
+    			var htmlStr4 = "<li>" + "<span>연간 <i></i></span>" + "<b>" + result.yearCnt + "</b>" + "</li>";
+    			$("#cnt").append(htmlStr1);
+    			$("#cnt").append(htmlStr2);
+    			$("#cnt").append(htmlStr3);
+    			$("#cnt").append(htmlStr4);
+    		},
+    		error: function(err){
+    			alert('error');
+    			console.log(err);
+    		}, complete : function(){}
+        });
+        
+
+    </script>
+	<header>
+		<div id="skipNav"><a href="#contents">본문 바로가기</a></div>
+		<div class="inner flexBox">
+			<h1><a href="/pap/main/main.do" class="logo" title="노동조합 회계공시스템 메인페이지로 가기"><span class="blind">노동조합 회계공시시스템</span></a></h1>
+			<nav class="nav flexBox">
+				<ul class="clear">
+					<li><a href="/pap/sysGuid/accnPbanSys.do">시스템안내</a>
+						<ul class="drop ml_10">
+							<li><a href="/pap/sysGuid/accnPbanSys.do">회계공시시스템이란</a></li>
+							<li><a href="/pap/sysGuid/mainPbanIem.do">주요회계공시항목 설명</a></li>
+							<li><a href="/pap/sysGuid/notice.do">공지사항</a></li>
+							<li><a href="/pap/sysGuid/faq.do">자주 묻는 질문</a></li>
+						</ul>
+					</li>
+					<li><a href="/pap/accnPban/accnPbanPrsl.do">회계공시열람</a>
+						<ul class="drop">
+							<li class="pl15"><a href="/pap/accnPban/accnPbanPrsl.do">회계공시열람</a></li>
+							<li class="pl15"><a href="/pap/accnPban/accnPbanYnInq.do">회계공시여부조회</a></li>
+						</ul>
+					</li>
+				
+
+				
+					<li><a href="/pap/sysMng/sttcPrcu.do">시스템 관리</a>
+						<ul class="drop">
+							<li><a href="/pap/sysMng/sttcPrcu.do">통계적 활용</a></li>
+							<li><a href="/pap/sysMng/ascAthrMng.do">접근권한관리</a></li>
+							<li><a href="/pap/sysMng/inptPdMng.do">입력기간관리</a></li>
+							<li><a href="/pap/sysMng/uniInptPdMng.do">노동조합별 입력기간관리</a></li>
+							<li><a href="/pap/sysMng/accnPbanBsisDataMng.do">회계공시 근거자료 관리</a></li>
+							<li><a href="/pap/sysMng/accnPbanRsltMng.do">회계공시 결과 관리</a></li>
+							<li><a href="/pap/sysMng/retrPdMng.do">조회기간관리</a></li>
+							<li><a href="/pap/sysMng/faqMng.do">게시판 관리</a></li>
+							<li><a href="/pap/sysMng/afogInq.do">가맹노조(산하조직)조회</a></li>
+							<li><a href="/pap/sysMng/accnPbanYnMng.do">회계공시여부관리</a></li>
+							<li><a href="/pap/sysMng/groupCdMng.do">공통코드 그룹관리</a></li>
+							<li><a href="/pap/sysMng/cmmnCdMng.do">공통코드 관리</a></li>
+						</ul>
+					</li>
+			    
+				</ul>
+				<div class="userInfo">
+				
+	                <ul id="cnt" class="clear">
+       					<colgroup>
+							<col />
+							<col />
+							<col />
+						</colgroup>
+					</ul>
+                
+				
+                	<a class="reSet" href="javascript:void(0);" onclick="fn_reset();"><em>관리자패스워드변경</em></a><span class="userName">관리자님</span> <a class="logIn" href="javascript:void(0);" onclick="fn_logout();"><em>로그아웃</em></a>
+                
+                </div>
+			</nav>
+
+			<div class="mobileNav">
+				<!-- Mobile -->
+				<button type="button" class="mobileMenuBtn">
+					<div class="hamburger">
+						<span class="line"></span>
+						<span class="line"></span>
+						<span class="line"></span>
+					</div>
+				</button>
+				<!-- Mobile gnb -->
+				<nav class="mobileMenu">
+					<ul class="clear">
+						<li><button type="button">시스템안내</button>
+							<ul class="tm_02dep">
+								<li><a href="/pap/sysGuid/accnPbanSys.do">회계공시시스템이란</a></li>
+								<li><a href="/pap/sysGuid/mainPbanIem.do">주요회계공시항목 설명</a></li>
+								<li><a href="/pap/sysGuid/notice.do">공지사항</a></li>
+								<li><a href="/pap/sysGuid/faq.do">자주 묻는 질문</a></li>
+							</ul>
+						</li>
+                    </ul>
+                    <ul class="clear pt5">
+						<li><button type="button">회계공시열람</button>
+                            <ul class="tm_02dep">
+                                <li><a href="/pap/accnPban/accnPbanPrsl.do">회계공시열람</a></li>
+                                <li><a href="/pap/accnPban/accnPbanYnInq.do">회계공시여부조회</a></li>
+                            </ul>
+                        </li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="navBg"></div>
+	</header></div>
+    <div id="body">
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>접근권한관리</title>
+<link rel="stylesheet"
+	href="/pap/common/css/jquery-ui.min.css">
+<link rel="stylesheet"
+	href="/pap/common/css/style.css">
+<script type="text/javascript">
+var fnSelectInfs = function(pageNo) {
+	$("#pageNo").val(pageNo);
+	fn_search();
+};
+var fn_search = function(){
+	var pageNo = $("#pageNo").val();
+	if(pageNo==""){
+		$("#pageNo").val(1);
+	}
+	console.log($("#frmSearch").serialize());
+	$("form[id=frmSearch]").attr("action", "/pap/sysMng/ascAthrMng.do");
+	$("form[id=frmSearch]").submit();
+};
+//*********************************************
+//버튼 설정
+//*********************************************
+function fn_reset(){
+	console.log("초기화");
+	$("#frmSearch")[0].reset();
+	$("#searchText").val('');
+}
+function fn_save(){
+	console.log("저장");
+	var lbrUniNm = $("#lbrUniNm").val();
+	if(lbrUniNm!=""){
+		if(confirm("저장하시겠습니까?")){
+			var param = $("#frmInput").serialize();
+		    $.ajax({
+				url: '/pap/sysMng/updateAscAthrMngAjax.do',
+				method: 'POST',
+				data: param,
+				success: function(data){
+				   var result = data.resultCnt;
+				   if(result="1"){
+					   alert("저장되었습니다.");
+					   fn_search();
+				   }
+				}, error: function(err){
+					alert('error');
+					console.log(err);
+				}
+		    });
+		}
+	}else{
+		alert("노동조합을 선택해주세요.");
+		return;
+	}
+}
+//가데이터, 실데이터 변경
+function fn_dataYn(dataYn){
+	console.log(dataYn);
+	var confirmStr = "";
+	if(dataYn=="Y"){
+		confirmStr = "가데이터로 변경하시겠습니까?";
+	}else{
+		confirmStr = "실데이터로 변경하시겠습니까?";
+	}
+	if(confirm(confirmStr)){
+		var param = {"exstDtacYn" : dataYn};
+	    $.ajax({
+			url: '/pap/sysMng/updateDataYnAjax.do',
+			method: 'POST',
+			data: param,
+			success: function(data){
+			   var result = data.resultCnt;
+			   if(result="1"){
+				   alert("메인페이지가 변경 되었습니다.");
+				   fn_search();
+			   }
+			}, error: function(err){
+				alert('error');
+				console.log(err);
+			}
+	    });
+	}
+}
+
+//파일다운로드
+function fn_fileDown(failId){
+    $("form[name=downForm]>input[name=atchFileId]").val(failId);
+    $("form[name=downForm]").attr("action", "/pap/sysMng/downloadAtchFile.do");
+    $("form[name=downForm]").submit();
+}
+//비밀번호 초기화
+function fn_pwReset(){
+	var userId = $("#userId").val();
+	if(userId==''){
+		alert("노동조합 목록을 선택해주세요.");
+		return;
+	}
+	var lbrUniNm = $("#lbrUniNm").val();
+	var confirmStr = "노동조합 : "+lbrUniNm+", \n사용자아이디 : "+ userId + "의 비밀번호를 초기화하시겠습니까?\n 초기비밀번호는 : moel#1234입니다.";
+	if(confirm(confirmStr)){
+		var param = $("#frmInput").serialize();
+	    $.ajax({
+			url: '/pap/sysMng/updateResetUserPwAjax.do',
+			method: 'POST',
+			data: param,
+			success: function(data){
+			   var result = data.resultCnt;
+			   if(result="1"){
+				   alert("비밀번호를 초기화했습니다.");
+			   }
+			}, error: function(err){
+				alert('error');
+				console.log(err);
+			}
+	    });
+	}	
+	
+}
+
+//주석 공개여부
+function fn_applyOpenYn(){
+	var userId = $("#userId").val();
+	var lbrUniFyr = $("#lbrUniFyr").val();
+	
+	if(userId==''){
+		alert("노동조합 목록을 선택해주세요.");
+		return;
+	}
+	if(lbrUniFyr==''){
+		alert("입력된 회계정보가 없습니다.");
+		return;
+	}
+
+	var param = $("#frmInput").serialize();
+
+	$.ajax({
+		url: '/pap/sysMng/updateOpenYnAjax.do',
+		method: 'POST',
+		data: param,
+		success: function(data){
+		   var result = data.resultCnt;
+		   if(result="1"){
+			   alert("공개여부가 정상적으로 처리됐습니다.");
+		   }
+		}, error: function(err){
+			alert('error');
+			console.log(err);
+	}
+    });	
+}
+
+//*********************************************
+//초기 설정
+//*********************************************
+$(document).ready(function() {
+	var searchField = "";
+// 	if(searchField!=''){
+// 		$("#select").val(searchField).prop("selected", true);
+// 	}
+	var searchField2 = "";
+	if(searchField2!=''){
+		$("#select2").val(searchField2).prop("selected", true);
+	}
+	//상세정보 출력 ajax
+	$("#tableList tbody").on("click", "tr", function(){
+		var lbrUniId = $(this).find("td:eq(0)").text();
+		$("#lbrUniId").val(lbrUniId);
+		$("#pageNo").val(1);
+		var param = $("#frmInput").serialize();
+	    $.ajax({
+			url: '/pap/sysMng/selectAscAthrMngDetailAjax.do',
+			method: 'POST',
+			data: param,
+			success: function(data){
+				var data = data.data;
+				$("#lbrUniNm").val(data.lbrUniNm);
+				$("#lbrUniRpsvNm").val(data.lbrUniRpsvNm);
+				$("#wrdTelno").val(data.wrdTelno);
+				$("#clrTelno").val(data.clrTelno);
+				$("#picNm").val(data.picNm);
+				$("#picEmlAddr").val(data.picEmlAddr);
+				$("#userId").val(data.userId);
+				$("#fdrtGrpCd").val(data.fdrtGrpCd); //총연합단체
+				$("#unonGrpCd").val(data.unonGrpCd); //연합단체
+				$("#lbrUniCd").val(data.lbrUniCd); //노동조합
+				$("#ognzUnitCd").val(data.ognzUnitCd); //조직단위
+				$("#lbrUniStleCd").val(data.lbrUniStleCd); //조합형태
+				$("#joinAppYmd").val(data.joinAppYmd);
+				$("#lastSubmYmd").val(data.lastSubmYmd);
+				$("#lbrUniFyr").val(data.lbrUniFyr);
+				$("#submDivCd").val(data.submDivCd);
+				$("#anntCn").val(data.anntCn);
+				$(":radio[name='aprvYn'][value="+data.aprvYn+"]").prop("checked", true);
+				$("#openDivCd").val(data.openDivCd).prop("selected", true);
+			}, error: function(err){
+				alert('error');
+				console.log(err);
+			}
+	    });
+	});
+	
+	var groupCd = "CD0003";
+	//총연합단체 조회
+    $.ajax({
+		url: '/pap/cmmt/lbrUniSysmCdListAjax.do',
+		method: 'POST',
+		data: {"groupCd"  : groupCd},
+		success: function(data){
+			var result = data.resultList;
+			var htmlStr = "<option value=''>전체</option>";
+			result.forEach(function(data, index){
+				htmlStr += "<option value="+ data.cmmnCd +">"+ data.cmcdNm +"</option>";
+			});
+			$("#select").append(htmlStr);
+		}, error: function(err){
+			alert('error');
+			console.log(err);
+		}, complete : function(){
+			$("#select").val(searchField).prop("selected", true);
+		}
+    });
+	
+	//가데이터 실데이터 메인페이지 변경버튼
+    $.ajax({
+		url: '/pap/sysMng/getDataYnAjax.do',
+		method: 'POST',
+		success: function(data){
+			var exstDtacYn = data.exstDtacYn;
+			htmlStr = "";
+			if(exstDtacYn=="Y"){
+				htmlStr+= "<button type='button' class='btnBk' id='btnDataYn' onclick='fn_dataYn(\""+exstDtacYn+"\");'>실데이터</button>"
+				$("#btndiv").append(htmlStr);
+			}else if(exstDtacYn=="N"){
+				htmlStr+= "<button type='button' class='btnBk' id='btnDataYn' onclick='fn_dataYn(\""+exstDtacYn+"\");'>가데이터</button>"
+				$("#btndiv").append(htmlStr);
+			}
+		}, error: function(err){
+			alert('error');
+			console.log(err);
+		}
+    });
+	
+	
+	$("input[type='text']").keydown(function(e){
+		if(e.keyCode===13){
+			event.preventDefault();
+		}
+	});
+	
+});
+</script>
+</head>
+<body>
+	<form id="downForm" name="downForm">
+		<input type="hidden" id="atchFileId" name="atchFileId" />
+	</form>
+	<div id="contents">
+		<div class="visual sub4">
+			<div class="inner">
+				<p>접근권한관리</p>
+				<p>접근권한관리 화면입니다.</p>
+			</div>
+		</div>
+		<div class="subNav">
+			<div class="inner h_per100 clear">
+				<a class="home"
+					href="/pap/main/main.do"><span
+					class="blind">메인페이지로 가기</span></a>
+				<div class="depth1">
+					<button type="button" class="depth1">시스템관리</button>
+					<ul>
+						<li><a
+							href="/pap/sysGuid/accnPbanSys.do">시스템
+								안내</a></li>
+						<li><a
+							href="/pap/accnPban/accnPbanPrsl.do">회계공시열람</a></li>
+						
+						<li><a
+							href="/pap/sysMng/sttcPrcu.do">시스템관리</a></li>
+					</ul>
+				</div>
+				<div class="depth2">
+					<button type="button">접근권한관리</button>
+					<ul>
+						<li><a
+							href="/pap/sysMng/sttcPrcu.do">통계적
+								활용</a></li>
+						<li><a
+							href="/pap/sysMng/ascAthrMng.do">접근권한관리</a></li>
+						<li><a
+							href="/pap/sysMng/inptPdMng.do">입력기간관리</a></li>
+						<li><a
+							href="/pap/sysMng/uniInptPdMng.do">노동조합별
+								입력기간관리</a></li>
+						<li><a
+							href="/pap/sysMng/retrPdMng.do">조회기간관리</a></li>
+						<li><a
+							href="/pap/sysMng/faqMng.do">자주
+								묻는 질문 관리</a></li>
+						<li><a
+							href="/pap/accnPban/afogInq.do">가맹노조(산하조직)조회</a></li>
+						<li><a
+							href="/pap/sysMng/accnPbanYnMng.do">회계공시여부관리</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="conBody inner">
+			<h2 class="conTitle pb10 relative">
+				접근권한관리
+				<div class="buttonRow" id="btndiv">
+					<button type="button" class="btnG" onclick="fn_reset();">초기화</button>
+					<button type="button" class="btnB" onclick="fn_search();">조회</button>
+					<button type="button" class="btnBk" onclick="fn_save();">저장</button>
+				</div>
+			</h2>
+			<form class="searchBox flexBox" id="frmSearch" method="POST">
+				<input type="hidden" id="pageNo" name="pageNo" value="" />
+				<div class="select w_per20 miw_100">
+					<label for="select" class="blind">검색조건 선택</label> <select
+						name="searchField" id="select">
+					</select>
+				</div>
+				<!-- 				<div class="select w_per20 pr8"> -->
+				<!-- 					<label for="searchField2" class="blind">검색조건 선택</label> -->
+				<!-- 					<select name="" id="searchField2"> -->
+				<!-- 						<option value="">전체</option> -->
+				<!-- 						<option value="1">전국건설산업노동조합연맹</option> -->
+				<!-- 					</select> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="select w_per20"> -->
+				<!-- 					<label for="searchField3" class="blind">검색조건 선택</label> -->
+				<!-- 					<select name="" id="searchField3"> -->
+				<!-- 						<option value="">전체</option> -->
+				<!-- 						<option value="1">전국건설산업노동 조합</option> -->
+				<!-- 					</select> -->
+				<!-- 				</div> -->
+				<div class="w_per40 pl8">
+					<label for="searchText" class="blind">검색어 입력</label> <input
+						type="text" id="searchText" name="searchText"
+						placeholder="노동조합, 산하조직, 대표자명, 총연맹명, 연맹명을 입력하세요."
+						value="">
+				</div>
+				<div class="flexBox w_per20 flex1">
+					<label for="select2" class="w_per45 miw_100">승인여부</label>
+					<div class="select miw_100">
+						<select name="searchField2" id="select2">
+							<option value="">전체</option>
+							<option value="Y">승인</option>
+							<option value="N">미승인</option>
+							<option value="R">반려</option>
+						</select>
+					</div>
+				</div>
+			</form>
+			<h3 class="dataTitle">
+				조회결과
+				<div class="count">
+					건수 : <span>908</span>건
+				</div>
+			</h3>
+
+			<div class="table ellipBox mb27">
+				<table class="table hover miw_800" id="tableList">
+					<caption>접근권한관리 조회결과(번호, 노동조합명, 총연합단체, 연합단체, 노동조합,
+						사용자아이디, 승인여부, 파일첨부)</caption>
+					<colgroup>
+						<col width="5%" />
+						<col />
+						<col />
+						<col />
+						<col />
+						<col width="10%" />
+						<col width="7%" />
+						<col width="7%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>노동조합명</th>
+							<th>총연합단체</th>
+							<th>연합단체</th>
+							<th>노동조합</th>
+							<th>사용자아이디</th>
+							<th>승인여부</th>
+							<th>파일첨부</th>
+						</tr>
+					</thead>
+					<tbody class="txt_c">
+						
+							
+								
+									<tr>
+										<td style="display: none;">LU00000928</td>
+										<td>1</td>
+										<td class="txt_l">충북교사노동조합</td>
+										<td class="txt_l">한국노동조합총연맹</td>
+										<td class="txt_l">교사노동조합연맹</td>
+										<td class="txt_l">충북교사노동조합</td>
+										<td>cbtu0928</td>
+										<td>승인</td>
+										
+											<td><button type="button">
+													<img
+														src="/pap/common/images/sub/iconFile.png"
+														alt="파일첨부 아이콘" onclick="fn_fileDown(20240000000229)"></td>
+										
+									</tr>
+								
+									<tr>
+										<td style="display: none;">LU00000927</td>
+										<td>2</td>
+										<td class="txt_l">코가스서비스얼라이언스 노동조합</td>
+										<td class="txt_l">총연합단체미가입</td>
+										<td class="txt_l">연합단체미가입</td>
+										<td class="txt_l"></td>
+										<td>kosaunion</td>
+										<td>승인</td>
+										
+											<td><button type="button">
+													<img
+														src="/pap/common/images/sub/iconFile.png"
+														alt="파일첨부 아이콘" onclick="fn_fileDown(20240000000225)"></td>
+										
+									</tr>
+								
+									<tr>
+										<td style="display: none;">LU00000926</td>
+										<td>3</td>
+										<td class="txt_l">abcavc</td>
+										<td class="txt_l">한국노동조합총연맹</td>
+										<td class="txt_l">공무원노동조합연맹</td>
+										<td class="txt_l">강남구청통합공무원노동조합</td>
+										<td>dolmin0708</td>
+										<td>승인</td>
+										
+											<td><button type="button">
+													<img
+														src="/pap/common/images/sub/iconFile.png"
+														alt="파일첨부 아이콘" onclick="fn_fileDown(20240000000219)"></td>
+										
+									</tr>
+								
+									<tr>
+										<td style="display: none;">LU00000925</td>
+										<td>4</td>
+										<td class="txt_l">농협대학교 노동조합</td>
+										<td class="txt_l">총연합단체미가입</td>
+										<td class="txt_l">연합단체미가입</td>
+										<td class="txt_l">농협대학교 노동조합</td>
+										<td>e1010013</td>
+										<td>승인</td>
+										
+											<td><button type="button">
+													<img
+														src="/pap/common/images/sub/iconFile.png"
+														alt="파일첨부 아이콘" onclick="fn_fileDown(20240000000216)"></td>
+										
+									</tr>
+								
+									<tr>
+										<td style="display: none;">LU00000924</td>
+										<td>5</td>
+										<td class="txt_l">경남교사노동조합</td>
+										<td class="txt_l">한국노동조합총연맹</td>
+										<td class="txt_l">교사노동조합연맹</td>
+										<td class="txt_l">경남교사노동조합</td>
+										<td>kntu1004</td>
+										<td>승인</td>
+										
+											<td><button type="button">
+													<img
+														src="/pap/common/images/sub/iconFile.png"
+														alt="파일첨부 아이콘" onclick="fn_fileDown(20240000000215)"></td>
+										
+									</tr>
+								
+							
+							
+						
+					</tbody>
+				</table>
+			</div>
+			<ul class="pagination mt30 mb10">
+				<a href="#" class="step first" onclick="fnSelectInfs(1);return false; " title="첫페이지로 이동"></a>&#160;<a href="#" class="step pre" onclick="fnSelectInfs(1);return false; " title="이전페이지로 이동"></a>&#160;<a href="#contents" class="active" title="1페이지">1</a>&#160;<a href="#" onclick="fnSelectInfs(2);return false; ">2</a>&#160;<a href="#" onclick="fnSelectInfs(3);return false; ">3</a>&#160;<a href="#" onclick="fnSelectInfs(4);return false; ">4</a>&#160;<a href="#" onclick="fnSelectInfs(5);return false; ">5</a>&#160;<a href="#" onclick="fnSelectInfs(6);return false; ">6</a>&#160;<a href="#" onclick="fnSelectInfs(7);return false; ">7</a>&#160;<a href="#" onclick="fnSelectInfs(8);return false; ">8</a>&#160;<a href="#" onclick="fnSelectInfs(9);return false; ">9</a>&#160;<a href="#" onclick="fnSelectInfs(10);return false; ">10</a>&#160;<a href="#" class="step next" onclick="fnSelectInfs(11);return false; " title="다음페이지로 이동"></a>&#160;<a href="#" class="step last" onclick="fnSelectInfs(182);return false; " title="마지막페이지로 이동"></a>&#160;
+
+			</ul>
+			<h3 class="dataTitle">
+				노동조합 정보
+				<!-- <div class="btnTootip"><p class="tooltip">설명문 입니다.</p></div> -->
+			</h3>
+			<div class="table horizontal">
+				<form id="frmInput">
+					<input type="hidden" id="lbrUniId" name="lbrUniId" value="" />
+					<table>
+						<caption>노동조합 정보(노동조합명, 노동조합 소속, 조직단위, 조합형태, 대표자명, 담당자,
+							담당자이메일, 사용자아이디, 승인여부, 비밀번호)</caption>
+						<colgroup>
+							<col width="10%" />
+							<col width="13%" />
+							<col width="10%" />
+							<col width="10%" />
+							<col width="23%" />
+							<col width="10%" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr class="readOnly">
+								<th><label for="lbrUniNm">노동조합명</label></th>
+								<td colspan="2"><input type="text" id="lbrUniNm" value=""
+									readonly></td>
+								<th><label for="fdrtGrpCd">노동조합 소속</label></th>
+								<td colspan="3">
+									<div class="flexBox">
+										<input type="text" id="fdrtGrpCd" value="" class="txt_l"
+											readonly> <input class="mr5 ml5 txt_l" type="text"
+											id="unonGrpCd" value="" readonly> <input type="text"
+											id="lbrUniCd" value="" class="txt_l" readonly>
+									</div>
+								</td>
+							</tr>
+							<tr class="readOnly">
+								<th><label for="ognzUnitCd">조직단위</label></th>
+								<td colspan="2"><input type="text" id="ognzUnitCd" value=""
+									readonly></td>
+								<th><label for="lbrUniStleCd">조합형태</label></th>
+								<td><input type="text" id="lbrUniStleCd" value="" readonly></td>
+								<th><label for="lbrUniRpsvNm">대표자명</label></th>
+								<td><input type="text" id="lbrUniRpsvNm" value="" readonly></td>
+							</tr>
+							<tr class="readOnly">
+								<th><label for="picNm">담당자</label></th>
+								<td colspan="2"><input type="text" id="picNm" value=""
+									readonly></td>
+								<th><label for="picEmlAddr">담당자이메일</label></th>
+								<td><input type="text" id="picEmlAddr" value="" readonly></td>
+								<th><label for="userId">사용자아이디</label></th>
+								<td><input type="text" id="userId" name="userId" value=""
+									readonly></td>
+							</tr>
+							<tr class="readOnly">
+								<th><label for="picNm">회원가입일자</label></th>
+								<td colspan="2"><input type="text" id="joinAppYmd" value=""
+									readonly></td>
+								<th><label for="picEmlAddr">최종 제출일자</label></th>
+								<td><input type="text" id="lastSubmYmd" value="" readonly></td>
+								<th><label for="userId">유선연락처</label></th>
+								<td><input type="text" id="wrdTelno" name="wrdTelno"
+									title="유선연락처" class="txt_l" readonly></td>
+							</tr>
+							<tr class="readOnly">
+								<th>승인여부</th>
+								<td colspan="2"><label for="radio" class="mr20"><input
+										type="radio" id="radio" name="aprvYn" value="Y">승인</label> <label
+									for="radio2"><input type="radio" id="radio2"
+										name="aprvYn" value="N">미승인</label> <label for="radio3"><input
+										type="radio" id="radio3" name="aprvYn" value="R">반려</label></td>
+								<th><label for="input6">비밀번호</label></th>
+								<td><input type="hidden" id="input6" value="" class="txt_r">
+								<button type="button" class="btnG" onclick="fn_pwReset();">초기화</button></td>
+								<th><label for="clrTelno">무선연락처</label></th>
+								<td><input type="text" id="clrTelno" name="clrTelno"
+									title="무선연락처" class="txt_l" readonly></td>
+							</tr>
+							<tr>
+								<th><label for="lbrUniFyr">회계연도</label></th>
+								<td><input type="text" id="lbrUniFyr" name="lbrUniFyr"
+									value="" readonly></td>
+								<th><label for="anntCn">주석</label></th>
+								<td colspan="2"><input type="text" id="anntCn"
+									name="anntCn" value="" readonly></td>
+								<th><label for=openDivCd">공개여부</label></th>
+								<td class="w_per100 flexBox">
+									<div class="select pr_3">
+										<select name="openDivCd" id="openDivCd">
+											<option value="Y">공개</option>
+											<option value="N">비공개</option>
+										</select>
+									</div> <input type="hidden" id="input6" value="" class="txt_r">
+								<button type="button" class="btnG" onclick="fn_applyOpenYn();">저장</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html></div>
+    <div id="footer">
+<!-- <div class="Footer">Footer</div> -->
+
+	<!-- Loading page -->
+	<!-- <div class="loading"><p><span class="dot"></span></p><p>Load<span></span>ng</p></div> -->
+	<!-- // Loading page -->
+	
+	<footer>
+		<div class="inner clear">
+			<div class="float logo">
+				<img src="/pap/common/images/common/logo_footer.png" alt="노동조합 회계공시시스템 로고이미지">
+			</div>
+			<div class="float con">
+				<div class="menu">
+<!-- 					<a href="#"><strong>서비스이용약관</strong></a> -->
+<!-- 					<a href="#">연계기관</a> -->
+<!-- 					<a href="#">사이트맵</a> -->
+				</div>
+				<p class="address">30117 세종특별자치시 한누리대로 422 정부세종청사 11동 고용노동부(044-202-7828)</p>
+				<p class="copy">Copyright(c)Ministry of Employment and Labor. All rights reserved.</p>
+			</div>
+		</div>
+	</footer></div>
+</body>
+</html>

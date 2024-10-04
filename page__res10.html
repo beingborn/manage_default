@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <script type="text/javascript">
+            var contextPath = "/pap";
+        </script>
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/common.css">
+        <!-- <link rel="shortcut icon" href="/pap/common/images/common/favicon.ico"> -->
+        <script src="js/chart.min.js"></script>
+        <script src="js/chartjs-plugin-datalabels.js"></script>
+        <script src="js/jquery-3.7.0.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/lpap.js"></script>
+    </head>
+    <body>
+        <div id="body">
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>회계공시 대상 검증관리</title>
+
+            
+
+                    <link rel="stylesheet" href="css/jquery-ui.min.css">
+                    <link rel="stylesheet" href="css/style.css">
+                    <script type="text/javascript">
+
+                        var fn_search = function () {
+                            var pageNo = $("#pageNo").val();
+                            if (pageNo == "") {
+                                $("#pageNo").val(1);
+                            }
+                            console.log($("#frmSearch").serialize());
+                            $("form[id=frmSearch]").attr("action", "/pap/sysMng/ascAthrMng.do");
+                            $("form[id=frmSearch]").submit();
+                        };
+
+                        //파일다운로드
+                        function fn_fileDown(failId) {
+                            $("form[name=downForm]>input[name=atchFileId]").val(failId);
+                            $("form[name=downForm]").attr("action", "/pap/sysMng/downloadAtchFile.do");
+                            $("form[name=downForm]").submit();
+                        }
+                    </script>
+
+                </script>
+            </head>
+            <body>
+                <form id="downForm" name="downForm">
+                    <input type="hidden" id="atchFileId" name="atchFileId"/>
+                </form>
+                <div id="contents">
+                    <div class="visual sub4">
+                        <div class="inner">
+                            <p>회계공시 대상 검증관리</p>
+                            <p>회계공시 대상의 검증을 관리할 수 있는 페이지입니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="conBody inner">
+                        <nav class="breadcrumb pb40">
+                            <ol class="path">
+                                <li class="home"><a href="#" class="txt">홈</a></li>
+                                <li><a href="#" class="txt">회계공시관리</a></li>
+                                <li><a href="exclusion__management.html" class="txt">회계공시 대상검증관리</a></li>
+                            </ol>
+                        </nav>
+                        <h2 class="conTitle pb10 relative">
+                            회계공시 대상 검증관리
+                            <div class="buttonRow" id="btndiv">
+                                <button type="button" class="btnG" onclick="fn_reset();">초기화</button>
+                                <button type="button" class="btnB" onclick="fn_search();">조회</button>
+                                <button type="button" class="btnLd" onclick="fn_save();">확정</button>
+                                <button type="button" class="btnLd" onclick="fn_save();">확정취소</button>
+                            </div>
+                        </h2>
+                        <form class="searchBox flexBox" id="frmSearch" method="POST">
+                            <input type="hidden" id="pageNo" name="pageNo" value=""/>
+                            <div class="select w_per20 miw_160 mw_160">
+                                <label for="searchField3" class="blind">검색조건 선택</label>
+                                <select name="" id="searchField3">
+                                    <option value="">전체</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                            <div class="w_per40 pl8 pr20">
+                                <label for="searchText" class="blind">검색어 입력</label>
+                                <input type="text" id="" name="" placeholder="노동조합명을 입력하세요." value="">
+                            </div>
+                        </form>
+                        <div class="flexBox">
+                            <div class="mr20 miw_280">
+                                <h3 class="dataTitle">노동조합 체계</h3>
+                                <!-- 메뉴 트리 -->
+                                <ul class="system-list" data-action="accordion">
+                                    <li class="home-li">
+                                        <div class="menu-body depth-0-body">
+                                            <div class="acco-in first-acco">
+                                                <ul class="sub-ul">
+                                                    <li class="depth-0-li">
+                                                        <div class="menu-body depth-0-body">
+                                                            <div class="acco-in">
+                                                                <ul class="sub-ul">
+                                                                    <!-- depth- 1 -->
+                                                                    <li class="depth-one-li">
+
+                                                                        <div class="menu-head depth-one">
+                                                                            <span class="menu-title">한국노동조합총연맹</span>
+                                                                            <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                        </div>
+
+                                                                        <div class="menu-body depth-second" style="display: none;">
+                                                                            <ul class="sub-ul">
+                                                                                <li class="depth-second-li">
+                                                                                    <div class="menu-head depth-second">
+                                                                                        <span class="menu-title">┗ 공무원 노동조합 연맹</span>
+                                                                                        <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                    </div>
+                                                                                    <div class="menu-body depth-three" style="display: none;">
+                                                                                        <ul class="sub-ul">
+                                                                                            <li class="depth-three-li">
+                                                                                                <div class="menu-head depth-three">
+                                                                                                    <span class="menu-title">┗ XXX 공무원 노동조합</span>
+                                                                                                    <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                </div>
+                                                                                                <div class="menu-body depth-four" style="display: none;">
+                                                                                                    <ul class="sub-ul">
+                                                                                                        <li class="depth-four-li">
+                                                                                                            <div class="menu-head depth-four">
+                                                                                                                <span class="menu-title">┗ XXX 공무원 노동조합 지부</span>
+                                                                                                                <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                            </div>
+                                                                                                            <div class="menu-body depth-five" style="display: none;">
+                                                                                                                <ul class="sub-ul">
+                                                                                                                    <li class="depth-five-li">
+                                                                                                                        <div class="menu-head depth-five">
+                                                                                                                            <span class="menu-title">┗ XXX 공무원 노동조합 지회</span>
+                                                                                                                            <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                                        </div>
+                                                                                                                        <div class="menu-body depth-six" style="display: none;">
+                                                                                                                            <ul class="sub-ul">
+                                                                                                                                <li class="depth-six-li">
+                                                                                                                                    <div class="menu-head depth-six">
+                                                                                                                                        <span class="menu-title">┗ 공무원 노동조합 분회</span>
+                                                                                                                                    </div>
+                                                                                                                                </li>
+                                                                                                                            </ul>
+                                                                                                                        </div>
+                                                                                                                    </li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <!-- depth -1 -->
+                                                                    <li class="depth-one-li">
+                                                                        <div class="menu-head depth-one">
+                                                                            <span class="menu-title">전국민주노동조합총연맹</span>
+                                                                            <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                        </div>
+                                                                        <div class="menu-body depth-second" style="display: none;">
+                                                                            <ul class="sub-ul">
+                                                                                <li class="depth-second-li">
+                                                                                    <div class="menu-head depth-second">
+                                                                                        <span class="menu-title">┗ 전국 노동조합 연맹</span>
+                                                                                        <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                    </div>
+                                                                                    <div class="menu-body depth-three" style="display: none;">
+                                                                                        <ul class="sub-ul">
+                                                                                            <li class="depth-three-li">
+                                                                                                <div class="menu-head depth-three">
+                                                                                                    <span class="menu-title">┗ 전국 공무원 노동조합</span>
+                                                                                                    <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                </div>
+                                                                                                <div class="menu-body depth-four" style="display: none;">
+                                                                                                    <ul class="sub-ul">
+                                                                                                        <li class="depth-four-li">
+                                                                                                            <div class="menu-head depth-four">
+                                                                                                                <span class="menu-title">┗ 전국 공무원 노동조합 지부</span>
+                                                                                                                <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                            </div>
+                                                                                                            <div class="menu-body depth-five" style="display: none;">
+                                                                                                                <ul class="sub-ul">
+                                                                                                                    <li class="depth-five-li">
+                                                                                                                        <div class="menu-head depth-five">
+                                                                                                                            <span class="menu-title">┗ 전국 공무원 노동조합 지회</span>
+                                                                                                                            <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                                        </div>
+                                                                                                                        <div class="menu-body depth-six" style="display: none;">
+                                                                                                                            <ul class="sub-ul">
+                                                                                                                                <li class="depth-six-li">
+                                                                                                                                    <div class="menu-head depth-six">
+                                                                                                                                        <span class="menu-title">┗ 전국 공무원 노동조합 분회</span>
+                                                                                                                                    </div>
+                                                                                                                                </li>
+                                                                                                                            </ul>
+                                                                                                                        </div>
+                                                                                                                    </li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <!-- depth - 1- li -->
+                                                                    <li class="depth-one-li">
+                                                                        <div class="menu-head depth-one">
+                                                                            <span class="menu-title">대한민국노동조합총연맹</span>
+                                                                            <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                        </div>
+                                                                        <div class="menu-body depth-second" style="display: none;">
+                                                                            <ul class="sub-ul">
+                                                                                <li class="depth-second-li">
+                                                                                    <div class="menu-head depth-second">
+                                                                                        <span class="menu-title">┗ 경기 노동조합 연맹</span>
+                                                                                        <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                    </div>
+                                                                                    <div class="menu-body depth-three" style="display: none;">
+                                                                                        <ul class="sub-ul">
+                                                                                            <li class="depth-three-li">
+                                                                                                <div class="menu-head depth-three">
+                                                                                                    <span class="menu-title">┗ 경기 공무원 노동조합</span>
+                                                                                                    <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                </div>
+                                                                                                <div class="menu-body depth-four" style="display: none;">
+                                                                                                    <ul class="sub-ul">
+                                                                                                        <li class="depth-four-li">
+                                                                                                            <div class="menu-head depth-four">
+                                                                                                                <span class="menu-title">┗ 경기 공무원 노동조합 지부</span>
+                                                                                                                <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                            </div>
+                                                                                                            <div class="menu-body depth-five" style="display: none;">
+                                                                                                                <ul class="sub-ul">
+                                                                                                                    <li class="depth-five-li">
+                                                                                                                        <div class="menu-head depth-five">
+                                                                                                                            <span class="menu-title">┗ 경기 공무원 노동조합 지회</span>
+                                                                                                                            <button type="button" class="btn btn-ico menu-btn"></button>
+                                                                                                                        </div>
+                                                                                                                        <div class="menu-body depth-six" style="display: none;">
+                                                                                                                            <ul class="sub-ul">
+                                                                                                                                <li class="depth-six-li">
+                                                                                                                                    <div class="menu-head depth-six">
+                                                                                                                                        <span class="menu-title">┗ 경기 공무원 노동조합 분회</span>
+                                                                                                                                    </div>
+                                                                                                                                </li>
+                                                                                                                            </ul>
+                                                                                                                        </div>
+                                                                                                                    </li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <!-- li -->
+                                                                    <li class="depth-one-li">
+                                                                        <div class="menu-head depth-one">
+                                                                            <span class="menu-title">국민통합노동조합총연맹</span>
+                                                                            <button type="button" class="menu-btn"></button>
+                                                                        </div>
+                                                                        <div class="menu-body depth-second-body" style="display: none;">
+                                                                            <ul class="sub-ul">
+                                                                                <li class="depth-second-li">
+                                                                                    <div class="menu-head depth-second">
+                                                                                        <span class="menu-title">┗ 공무원 노동조합 연맹</span>
+                                                                                        <button type="button" class="menu-btn"></button>
+                                                                                    </div>
+                                                                                    <div class="menu-body depth-three-body" style="display: none;">
+                                                                                        <ul class="sub-ul">
+                                                                                            <li class="depth-three-li">
+                                                                                                <div class="menu-head depth-three">
+                                                                                                    <span class="menu-title">┗ XXX 공무원 노동조합</span>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <!-- depth - 1 li -->
+                                                                    <li class="depth-one-li">
+                                                                        <div class="menu-head depth-one">
+                                                                            <span class="menu-title">미가맹</span>
+                                                                            <button type="button" class="menu-btn"></button>
+                                                                        </div>
+                                                                        <div class="menu-body depth-second-body" style="display: none;">
+                                                                            <ul class="sub-ul">
+                                                                                <li class="depth-second-li">
+                                                                                    <div class="menu-head depth-second">
+                                                                                        <span class="menu-title">┗ 미가입1</span>
+                                                                                        <button type="button" class="menu-btn"></button>
+                                                                                    </div>
+                                                                                    <div class="menu-body depth-three-body" style="display: none;">
+                                                                                        <ul class="sub-ul">
+                                                                                            <li class="depth-three-li">
+                                                                                                <div class="menu-head depth-three">
+                                                                                                    <span class="menu-title">┗ 미가입 2</span>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="table_wrap content_r">
+                                <h3 class="dataTitle">
+                                    조회결과
+                                    <div class="count">
+                                        건수 :
+                                        <span>1,550</span>건
+                                    </div>
+                                </h3>
+
+                                <div class="table mb27">
+                                    <table class="table hover miw_600 vertical" id="tableList">
+                                        <caption>접근권한관리 조회결과(번호, 노동조합명, 총연합단체, 연합단체, 노동조합, 사용자아이디, 승인여부, 파일첨부)</caption>
+                                        <colgroup>
+                                            <col style="width: 6%;">
+                                            <col style="width: 8%;">
+                                            <col style="width: 24%;">
+                                            <col style="width: 8%;">
+                                            <col style="width: 8%;">
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col>
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>번호</th>
+                                                <th>회계연도</th>
+                                                <th>노동조합명</th>
+                                                <th>주/부여부</th>
+                                                <th>관리<br class="pcOnly">기관</th>
+                                                <th>사업자등록번호</th>
+                                                <th>중복건수</th>
+                                                <th>신규여부</th>
+                                                <th>제외여부</th>
+                                                <th>검증내용</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="txt_c">
+                                            <tr>
+                                                <td class="txt_c">1</td>
+                                                <td class="txt_c">2023</td>
+                                                <td class="txt_l">테스트</td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_l"></td>
+                                                <td class="txt_c">2</td>
+                                                <td class="txt_c">N</td>
+                                                <td class="txt_c">N</td>
+                                                <td class="txt_c"><button type="button" class="openPopup btnG">비교</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="txt_c">2</td>
+                                                <td class="txt_c">2023</td>
+                                                <td class="txt_l">테스트</td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_l"></td>
+                                                <td class="txt_c">1</td>
+                                                <td class="txt_c">Y</td>
+                                                <td class="txt_c">N</td>
+                                                <td class="txt_c"><button type="button" class="openPopup btnG">비교</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="txt_c">3</td>
+                                                <td class="txt_c">2023</td>
+                                                <td class="txt_l">김철수조합</td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_l"></td>
+                                                <td class="txt_c">1</td>
+                                                <td class="txt_c">N</td>
+                                                <td class="txt_c">Y</td>
+                                                <td class="txt_c"><button type="button" class="openPopup btnG">비교</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <ul class="pagination mt30 mb10">
+                                    <a
+                                        href="#"
+                                        class="step first"
+                                        onclick="fnSelectInfs(1);return false; "
+                                        title="첫페이지로 이동"></a>&#160;<a
+                                        href="#"
+                                        class="step pre"
+                                        onclick="fnSelectInfs(1);return false; "
+                                        title="이전페이지로 이동"></a>&#160;
+										<a href="#contents" class="active" title="1페이지">1</a>
+										&#160;
+										<a href="#" onclick="fnSelectInfs(2);return false;">2</a>
+										&#160;<a href="#" onclick="fnSelectInfs(3);return false; ">3</a>
+										&#160;<a href="#" onclick="fnSelectInfs(4);return false; ">4</a>
+										&#160;<a href="#" onclick="fnSelectInfs(5);return false; ">5</a>
+										<!-- &#160;<a href="#" onclick="fnSelectInfs(6);return false; ">6</a>
+										&#160;<a href="#" onclick="fnSelectInfs(7);return false; ">7</a>
+										&#160;<a href="#" onclick="fnSelectInfs(8);return false; ">8</a>
+										&#160;<a href="#" onclick="fnSelectInfs(9);return false; ">9</a>&#160;
+										<a href="#" onclick="fnSelectInfs(10);return false; ">10</a> -->
+										&#160;<a
+                                        href="#"
+                                        class="step next"
+                                        onclick="fnSelectInfs(11);return false; "
+                                        title="다음페이지로 이동"></a>&#160;<a
+                                        href="#"
+                                        class="step last"
+                                        onclick="fnSelectInfs(182);return false; "
+                                        title="마지막페이지로 이동"></a>&#160;
+                                </ul>
+                                <h3 class="dataTitle">
+                                    회계공시 대상 노동조합 정보
+                                    <!-- <div class="btnTootip"><p class="tooltip">설명문 입니다.</p></div> -->
+                                </h3>
+                                <div class="table horizontal">
+                                    <form id="frmInput">
+                                        <table>
+                                            <caption>노동조합 체계정보</caption>
+                                            <colgroup>
+                                                <col width="15%">
+                                                <col width="35%">
+                                                <col width="15%">
+                                                <col width="35%">
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th><label for="lbrUniNm">회계연도</label></th>
+                                                    <td>
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="회계연도">
+                                                    </td>
+                                                    <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">노동조합명<span class="blind">필수항목입니다.</span></label></th>
+                                                    <td class="flexBox">
+                                                        <input type="hidden" id="lbrUniInptPdId" name="lbrUniInptPdId" value="2024000108">
+                                                        <input type="hidden" id="lbrUniId" name="lbrUniId" value="LU00000924" maxlength="10" title="노동조합명">
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" maxlength="300" title="노동조합명">
+                                                        <button type="button" class="btnG">검색</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><label for="lbrUniNm">사업장명</label></th>
+                                                    <td>
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="사업장명">
+                                                    </td>
+                                                    <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">사업자등록번호</label></th>
+                                                    <td>
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="사업자등록번호명">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><label for="lbrUniNm">대표자명</label></th>
+                                                    <td>
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="대표자명">
+                                                    </td>
+                                                    <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">설립연월일</label></th>
+                                                    <td>
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="설립연월일">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><label for="lbrUniNm">근로자 수</label></th>
+                                                    <td>
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="근로자 수">
+                                                    </td>
+                                                    <th style="border-left: 1px solid rgb(221, 221, 221);"><label for="resnSeCd0">조합원 수</label></th>
+                                                    <td>
+                                                        <input type="text" id="lbrUniNm" name="lbrUniNm" value="" class="txt_r" readonly="" title="조합원 수">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                                <h3 class="dataTitle">
+                                    노동조합 체계정보
+                                    <!-- <div class="btnTootip"><p class="tooltip">설명문 입니다.</p></div> -->
+                                </h3>
+                                <div class="table mb27">
+                                    <table class="table hover miw_600" id="tableList">
+                                        <caption>접근권한관리 조회결과(번호, 노동조합명, 총연합단체, 연합단체, 노동조합, 사용자아이디, 승인여부, 파일첨부)</caption>
+                                        <colgroup>
+                                            <col style="width: 6%;">
+                                            <col style="width: 8%;">
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>순번</th>
+                                                <th>주/부여부</th>
+                                                <th>총연합단체</th>
+                                                <th>연합단체</th>
+                                                <th>단위노동조합</th>
+                                                <th>지부</th>
+                                                <th>지회</th>
+                                                <th>분회</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="txt_c">
+
+                                            <tr>
+                                                <td class="txt_c">1</td>
+                                                <td class="txt_c">주</td>
+                                                <td class="txt_l"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_l"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="txt_c">2</td>
+                                                <td class="txt_c">부</td>
+                                                <td class="txt_l">테스트</td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_l"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+						<div id="popup" class="shadow miw_1280" tabindex="0">
+							<!-- <h2 class="title">노동조합</h2> -->
+							<h2 class="title">홍길동 조합 상세정보</h2>
+							<div class="body">
+								<h3 class="dataTitle pb10 relative" style="padding-bottom: 10px;">회계공시 대상년월: 2024-07<span class="unit">건수 : <span id="modalCnt">908</span></span></h3>
+								<div class="table mb58 table_wrap" style="margin-bottom: 27px;">
+                                    <table class="table hover div_per100" id="tableList">
+                                        <caption>조합 상세정보</caption>
+                                        <colgroup>
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                            <col style="width: 3%;">
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col style="width: 4%;">
+                                            <col style="width: 4%;">
+                                            <col style="width: 4%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>회계년월</th>
+                                                <th>노동조합명</th>
+                                                <th>주/부</th>
+                                                <th>대표자</th>
+                                                <th>조직형태</th>
+                                                <th>조직단위</th>
+                                                <th>조합원수</th>
+                                                <th>총연합</th>
+                                                <th>연합단체</th>
+                                                <th>단위노동(산별지역)</th>
+												<th>지부</th>
+                                                <th>지회</th>
+                                                <th>분회</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="txt_c">
+                                            <tr>
+                                                <td class="txt_c">2024-07</td>
+                                                <td class="txt_l">홍길동 조합</td>
+                                                <td class="txt_c">주</td>
+                                                <td class="txt_c">홍길동</td>
+                                                <td class="txt_c">기업</td>
+                                                <td class="txt_c">단위</td>
+                                                <td class="txt_r">999</td>
+                                                <td class="txt_l">전국민주노동조합명</td>
+                                                <td class="txt_l">전국화학연합</td>
+                                                <td class="txt_l">홍길동 노동조합</td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+								<h3 class="dataTitle pb10 relative" style="padding-bottom: 10px;">회계공시 대상년월: 2024-04<span class="unit">건수 : <span id="modalCnt">908</span></span></h3>
+								<div class="table mb27 table_wrap">
+                                    <table class="table hover div_per100" id="tableList">
+                                        <caption>조합 상세정보</caption>
+                                        <colgroup>
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                            <col style="width: 6%;">
+                                            <col style="width: 3%;">
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col>
+                                            <col style="width: 4%;">
+                                            <col style="width: 4%;">
+                                            <col style="width: 4%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>회계년월</th>
+                                                <th>노동조합명</th>
+                                                <th>주/부</th>
+                                                <th>대표자</th>
+                                                <th>조직형태</th>
+                                                <th>조직단위</th>
+                                                <th>조합원수</th>
+                                                <th>총연합</th>
+                                                <th>연합단체</th>
+                                                <th>단위노동(산별지역)</th>
+												<th>지부</th>
+                                                <th>지회</th>
+                                                <th>분회</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="txt_c">
+                                            <tr>
+                                                <td class="txt_c">2024-07</td>
+                                                <td class="txt_l">홍길동 조합</td>
+                                                <td class="txt_c">주</td>
+                                                <td class="txt_c">홍길동</td>
+                                                <td class="txt_c">기업</td>
+                                                <td class="txt_c">단위</td>
+                                                <td class="txt_r">1,001</td>
+                                                <td class="txt_l">전국민주노동조합명</td>
+                                                <td class="txt_l">전국화학연합</td>
+                                                <td class="txt_l">홍길동 노동조합</td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                            </tr>
+                                            <tr>
+												<td class="txt_c">2024-07</td>
+                                                <td class="txt_l">홍길동 조합</td>
+                                                <td class="txt_c">주</td>
+                                                <td class="txt_c">홍길동</td>
+                                                <td class="txt_c">기업</td>
+                                                <td class="txt_c">단위</td>
+                                                <td class="txt_r">1,001</td>
+                                                <td class="txt_l">전국민주노동조합명</td>
+                                                <td class="txt_l">xxxxx연합</td>
+                                                <td class="txt_l">홍길동 노동조합</td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                                <td class="txt_c"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+								<div class="buttonRow mb20 long txt_c">
+									<button type="button" class="close btnG ml0" id="Btnclose" style="margin-left: 0px;">닫기</button>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </div>
+    <div class="gnb__bg"></div>
+</body>
+
+</html>

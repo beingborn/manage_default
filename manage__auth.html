@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <script type="text/javascript">
+            var contextPath = "/pap";
+        </script>
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/common.css">
+        <!-- <link rel="shortcut icon" href="/pap/common/images/common/favicon.ico"> -->
+        <script src="js/chart.min.js"></script>
+        <script src="js/chartjs-plugin-datalabels.js"></script>
+        <script src="js/jquery-3.7.0.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/lpap.js"></script>
+    </head>
+    <body>
+        <div id="body">
+
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>권한별 메뉴관리</title>
+                    <link rel="stylesheet" href="css/jquery-ui.min.css">
+                    <link rel="stylesheet" href="css/style.css">
+                </head>
+                <body>
+                    <div id="contents">
+                        <div class="visual sub4">
+                            <div class="inner">
+                                <p>권한별 메뉴관리</p>
+                                <p>권한별 메뉴를 관리할 수 있는 페이지입니다.</p>
+                            </div>
+                        </div>
+                        <div class="conBody inner">
+                            <nav class="breadcrumb pb40">
+                                <ol class="path">
+                                    <li class="home"><a href="#" class="txt">홈</a></li>
+                                    <li><a href="#" class="txt">시스템 관리</a></li>
+                                    <li><a href="manage__auth.html" class="txt">권한별 메뉴관리</a></li>
+                                </ol>
+                            </nav>
+                            <h2 class="conTitle pb10 relative">
+                                권한별 메뉴관리
+                                <div class="buttonRow" id="btndiv">
+                                    <button type="button" class="btnBk" onclick="fn_save();">저장</button>
+                                </div>
+                            </h2>
+                            <div class="flexBox">
+                                <div class="mr20 miw_280 mw_280">
+                                    <h3 class="dataTitle">권한</h3>
+                                    <div class="table mb27 authTable">
+                                        <table class="table hover">
+                                            <caption>접근 권한 관리</caption>
+                                            <thead>
+                                                <tr class="txt_c">
+                                                    <th colspan="2">권한명</th>
+                                                </tr>
+                                            </thead>
+                                        <tbody>
+                                            <tr><td colspan="2"><button class="w_per100 txt_l" type="button">관리자</button></td></tr>
+                                            <tr><td colspan="2"><button class="w_per100 txt_l" type="button">노동조합</button></td></tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="content_r">
+                                    <h3 class="dataTitle">권한별 메뉴</h3>
+                                    <!-- 관리자 탭 컨텐츠 -->
+                                    <div class="tabContent">
+                                        <ul class="menu-check w_per100" data-action="accordion">
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">회계공시열람</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 회계공시시스템이란</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 주요회계공시항목설명</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 공지사항</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 자주묻는질문</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">회계공시열람</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 회계공시열람</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 회계공시여부 조회</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">회계공시등록</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 회계공시등록</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 가맹노조(산하조직)관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">회계공시 관리</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 노동조합 관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                            <div class="menu-body depth-three">
+                                                                <ul class="sub-ul">
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">노동조합 관리</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">노동조합 체계관리</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- 노동조합 탭 컨텐츠 -->
+                                    <div class="tabContent">
+                                        <ul class="menu-check w_per100" data-action="accordion">
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">시스템 관리</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 공통코드 그룹관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 공통코드 관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 권한관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 메뉴관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                            <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 권한별 메뉴관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                            </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 팝업관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 베너관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 가맹노조(산하조직)관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 오류관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">회계공시 관리</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 노동조합 관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                            <div class="menu-body depth-three">
+                                                                <ul class="sub-ul">
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">노동조합 관리</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">노동조합 체계관리</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">노동조합 체계관리2</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">회계공시 대상자 관리</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 회계공시 대상자 관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                            <div class="menu-body depth-three">
+                                                                <ul class="sub-ul">
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">회계공시 대상자 관리1</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">회계공시 대상자 관리2</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="depth-three-li">
+                                                                        <div class="menu-head depth-three">
+                                                                            <span class="menu-title">회계공시 대상자 관리3</span>
+                                                                            <div><label><input type="checkbox"></label></div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>             
+                                            <li class="depth-one-li">
+                                                <div class="menu-head depth-one">
+                                                    <span class="menu-title">통계및보고서 관리</span>
+                                                    <div><label><input type="checkbox"></label></div>
+                                                </div>
+                                                <div class="menu-body depth-second">
+                                                    <ul class="sub-ul">
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 통계및보고서 관리</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 보고서1</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 보고서2</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 보고서3</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 보고서4</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 보고서5</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                            <span class="menu-title">┗ 보고서6</span>
+                                                            <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 보고서7</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="depth-second-li">
+                                                            <div class="menu-head depth-second">
+                                                                <span class="menu-title">┗ 보고서8</span>
+                                                                <div><label><input type="checkbox"></label></div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+            </html>
+        </div>
+        <div class="gnb__bg"></div>
+        <script>
+            // 권한별 탭 변환
+            $(".authTable tr").click(function (e){
+            e.stopPropagation(); 
+            let idx = $(this).index();  
+            $(".tabContent").hide();
+            $(".tabContent").eq(idx).fadeIn();
+            });
+        </script>
+    </body>
+</html>
