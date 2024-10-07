@@ -2,7 +2,7 @@
 
 .sub1{background:url("../images/sub/bg_sub1_2.png") center center;}
 .sub1_2, .sub1_3, .sub2, .sub3, .sub4{background:url("../images/sub/bg_sub1_2.png") center center;}
-/* new bg Class 2024 1002 이민혁 추가  */
+/* new bg Class 2024 1007 이민혁 추가  */
 .sub5 {background: url(../images/sub/bg_sub1_3.png) center center;} /* 시스템 관리 */
 .sub6 {background: url(../images/sub/bg_sub1_4.png) center center;} /* 사용자 관리 */
 .sub7 {background: url(../images/sub/bg_sub1_5.png) center center;} /* 회계공시 관리 */
